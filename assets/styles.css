@@ -178,12 +178,13 @@ html:not(.js) .hero-bg,
 html:not(.js) .hero-cue{display:none}
 
 /* PHOTO DROP-IN.
-   Drop a file named tower.jpg beside index.html and it takes over the hero,
-   covering the SVG below it. If the file isn't there nothing paints and the
-   SVG shows through — so this needs no JS and never shows a broken image. */
+   tower.webp (185KB) sits beside index.html and takes over the hero, covering
+   the SVG below it. If the file isn't there nothing paints and the SVG shows
+   through — so this needs no JS and never shows a broken image.
+   Note: url() resolves relative to THIS stylesheet in assets/, hence ../ */
 .hero-photo{
   position:absolute;inset:0;z-index:1;pointer-events:none;
-  background-image:url('../tower.jpg?v=d91cc116');
+  background-image:url('../tower.webp?v=5c447b07');
   background-size:cover;
   background-position:center bottom;
   background-repeat:no-repeat;
