@@ -452,3 +452,58 @@ html:not(.js) .hero-cue{display:none}
   .prow:nth-child(even) .prow-media{order:0}
 }
 
+
+/* ---------- catalogue (PRD 6.3 / F-03) ---------- */
+.cat-controls{display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:flex-end;margin-bottom:var(--space-3)}
+.cat-controls select{
+  min-height:44px;padding:12px 14px;font:inherit;font-size:15px;
+  background:var(--white);border:1px solid var(--steel-200);color:var(--ink)
+}
+.cat-controls select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(10,95,102,.12)}
+.cat-count{font-size:13px;color:var(--steel-600);margin-bottom:var(--space-2)}
+.cat-empty{padding:var(--space-5) 0;text-align:center;color:var(--steel-600)}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline}
+
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--steel-200);border:var(--hairline)}
+.pcard{
+  background:var(--white);padding:var(--space-3);display:flex;flex-direction:column;gap:8px;
+  min-height:132px;transition:background .18s ease
+}
+.pcard:hover{background:var(--steel-100)}
+.pcard[hidden]{display:none}
+.pcode{font-family:'Archivo';font-weight:900;font-size:12px;letter-spacing:.1em;color:var(--accent)}
+.pname{font-family:'Archivo';font-weight:600;font-size:15px;line-height:1.3}
+.ptags{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}
+.ptag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel-600);background:var(--steel-100);padding:3px 7px}
+.flag{font-style:normal;font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:#FDF0D5;color:#8A5A00;padding:2px 6px}
+
+/* ---------- product detail ---------- */
+.spec{display:grid;grid-template-columns:auto 1fr;gap:10px var(--space-3);margin-top:var(--space-3)}
+.spec dt{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-600);padding-top:3px}
+.spec dd{font-family:'Archivo';font-weight:600;font-size:16px}
+.spec dd.muted{font-weight:400;font-family:'Inter';color:var(--steel-600);font-size:15px}
+.pnav{display:flex;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;border-top:var(--hairline);padding-top:var(--space-3);margin-top:var(--space-5);font-size:13px}
+.pnav a{color:var(--steel-600)}
+.pnav a:hover{color:var(--accent)}
+
+/* ---------- callout + tables ---------- */
+.callout{background:var(--white);border:var(--hairline);border-left:3px solid var(--accent);padding:var(--space-4)}
+.note{font-size:13px;color:var(--steel-600)}
+.hint{font-size:12.5px;color:var(--accent);margin-top:6px}
+.req{color:var(--accent)}
+.twrap{overflow-x:auto;margin-top:var(--space-3);border:var(--hairline)}
+.dtable{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);min-width:640px}
+.dtable th,.dtable td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--steel-200)}
+.dtable thead th{
+  background:var(--ink);color:var(--white);font-family:'Archivo';font-weight:600;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap
+}
+.dtable tbody tr:nth-child(even){background:var(--steel-100)}
+.dtable .tbd{color:var(--steel-600);font-style:italic;text-align:center;padding:var(--space-5)}
+
+@media (max-width:640px){
+  .cat-controls{flex-direction:column;align-items:stretch}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .spec{grid-template-columns:1fr;gap:4px var(--space-2)}
+  .spec dd{margin-bottom:10px}
+}

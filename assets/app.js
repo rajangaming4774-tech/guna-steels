@@ -137,6 +137,27 @@ window.addEventListener('resize', schedule, { passive: true });
 
 } // end hero gate
 
+// Header elevation on scroll — runs on every page, hero or not.
+const hdrEl = document.querySelector('.hdr');
+if (hdrEl) {
+  window.addEventListener('scroll', () => {
+    hdrEl.classList.toggle('stuck', window.scrollY > 12);
+  }, { passive: true });
+}
+
+/* RFQ pre-fill (PRD F-04): a product page links to contact.html?product=RO-051,
+   and the enquiry form arrives already carrying that code. */
+const rfqProduct = document.getElementById('product');
+if (rfqProduct) {
+  const code = new URLSearchParams(location.search).get('product');
+  // validated against the code format — never echo arbitrary input into the field
+  if (code && /^RO-\d{3}$/.test(code)) {
+    rfqProduct.value = code;
+    const note = document.getElementById('prefillNote');
+    if (note) note.hidden = false;
+  }
+}
+
 // Conversion events — swap console for the real analytics call at launch.
 document.querySelectorAll('[data-evt]').forEach(el => {
   el.addEventListener('click', () => console.log('cta:', el.dataset.evt));

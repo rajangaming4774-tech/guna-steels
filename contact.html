@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact Us — Guna Steels | Thindivanam, Tamil Nadu</title>
-<meta name="description" content="Contact Guna Steels for pharma-grade stainless steel fabrication. Call +91 73584 35969, WhatsApp, or send an enquiry. Workshop in Thindivanam, Tamil Nadu.">
+<title>Request a Quote — Guna Steels | Tindivanam, Tamil Nadu</title>
+<meta name="description" content="Request a quote from Guna Steels for pharma-grade stainless steel fabrication. Call +91 73584 35969, WhatsApp, or send an RFQ. Workshop in Tindivanam, Tamil Nadu.">
 <link rel="canonical" href="https://gunasteels.in/contact.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=52fe42a2">
+<link rel="stylesheet" href="assets/styles.css?v=8dfabffc">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Guna Steels","description":"Manufacturer and fabricator of stainless-steel pharma-grade machinery, valves, fittings and purified-water systems.","telephone":"+91 73584 35969","email":"info.gunasteels@gmail.com","address":{"@type":"PostalAddress","streetAddress":"19/36E, Sanjeevarayan Pettai, First Street","addressLocality":"Tindivanam","addressRegion":"Tamil Nadu","postalCode":"604001","addressCountry":"IN"},"founder":{"@type":"Person","name":"R. G. Gunaseelan"}}</script>
 </head>
 <script>document.documentElement.classList.add('js')</script>
 <body>
@@ -20,8 +21,10 @@
     <nav class="nav" aria-label="Primary">
       <a href="about.html">About Us</a>
       <a href="products.html">Products</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="technical.html">Technical</a>
       <a href="services.html">Services</a>
-      <a href="contact.html" aria-current="page">Contact Us</a>
+      <a href="contact.html" aria-current="page">Contact</a>
     </nav>
     <div class="hdr-cta">
       <a class="btn btn-ghost" href="brochure.pdf" download data-evt="brochure">Brochure</a>
@@ -34,21 +37,25 @@
   <section class="page-hero">
     <div class="ghost" aria-hidden="true">CONTACT</div>
     <div class="shell page-hero-in">
-      <p class="crumb"><a href="index.html">Home</a><span>/</span>Contact Us</p>
-      <h1>Start an enquiry</h1>
-      <p>Send us your drawings or your problem. Call, WhatsApp, or use the form — whichever is quickest for you.</p>
+      <p class="crumb"><a href="index.html">Home</a><span>/</span>Contact</p>
+      <h1>Request a quote</h1>
+      <p>Send a product code, a drawing, or the problem. Call, WhatsApp, or use the form — whichever is quickest for you.</p>
     </div>
   </section>
 
   <section class="sec shell">
     <div class="contact-grid rv">
-      <form method="post" action="/enquiry">
+      <form method="post" action="/enquiry" id="rfq">
         <div class="field">
-          <label for="name">Name *</label>
+          <label for="name">Name <span class="req">*</span></label>
           <input id="name" name="name" required autocomplete="name">
         </div>
         <div class="field">
-          <label for="email">Email *</label>
+          <label for="company">Company</label>
+          <input id="company" name="company" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
           <input id="email" name="email" type="email" required autocomplete="email">
         </div>
         <div class="field">
@@ -56,23 +63,30 @@
           <input id="phone" name="phone" type="tel" autocomplete="tel">
         </div>
         <div class="field">
+          <label for="product">Product / Interest</label>
+          <input id="product" name="product" placeholder="e.g. RO-051 Ball Valve, or describe your requirement">
+          <p class="hint" id="prefillNote" hidden>Pre-filled from the product page you came from.</p>
+        </div>
+        <div class="field">
           <label for="msg">Message</label>
           <textarea id="msg" name="message"></textarea>
         </div>
         <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn btn-dark" type="submit" data-evt="form">Send Enquiry</button>
+        <p class="note" style="margin-top:var(--space-2)">We'll reply to info.gunasteels@gmail.com enquiries within one working day.</p>
       </form>
 
       <div>
         <ul class="contact-list">
           <li><b>Phone</b><a href="tel:+917358435969" data-evt="call">+91 73584 35969</a></li>
-          <li><b>WhatsApp</b><a href="https://wa.me/917358435969?text=Hi%20Guna%20Steels%2C%20I%27d%20like%20an%20enquiry%20about%20pharma-grade%20stainless%20steel%20fabrication." target="_blank" rel="noopener" data-evt="whatsapp">Message us on WhatsApp</a></li>
+          <li><b>WhatsApp</b><a href="https://wa.me/917358435969?text=Hi%20Guna%20Steels%2C%20I%27d%20like%20to%20request%20a%20quote." target="_blank" rel="noopener" data-evt="whatsapp">Message us on WhatsApp</a></li>
           <li><b>Email</b><a href="mailto:info.gunasteels@gmail.com">info.gunasteels@gmail.com</a></li>
-          <li><b>Workshop</b><p>19/36E, Sanjeevarayan Pettai, First Street,<br>Thindivanam, Tamil Nadu – 604001</p></li>
+          <li><b>Workshop</b><p>19/36E, Sanjeevarayan Pettai, First Street,<br>Tindivanam, Tamil Nadu – 604001</p></li>
+          <li><b>Promoter</b><p>R. G. Gunaseelan</p></li>
         </ul>
-        <iframe class="map" title="Guna Steels workshop location, Thindivanam, Tamil Nadu"
+        <iframe class="map" title="Guna Steels workshop location, Tindivanam, Tamil Nadu"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Sanjeevarayan%20Pettai%20First%20Street%2C%20Thindivanam%2C%20Tamil%20Nadu%20604001&output=embed"></iframe>
+          src="https://www.google.com/maps?q=Sanjeevarayan%20Pettai%20First%20Street%2C%20Tindivanam%2C%20Tamil%20Nadu%20604001&output=embed"></iframe>
       </div>
     </div>
   </section>
@@ -80,12 +94,12 @@
 <section class="cta">
   <div class="shell cta-in rv">
     <div>
-      <h2>Talk to our fabrication team</h2>
-      <p>Send us your drawings or your problem. We'll tell you what it takes.</p>
+      <h2>Request a quote</h2>
+      <p>Send us a product code, a drawing, or the problem. We'll tell you what it takes.</p>
     </div>
     <div class="cta-btns">
-      <a class="btn btn-white" href="tel:+917358435969" data-evt="call">Call +91 73584 35969</a>
-      <a class="btn btn-ghost" href="https://wa.me/917358435969?text=Hi%20Guna%20Steels%2C%20I%27d%20like%20an%20enquiry%20about%20pharma-grade%20stainless%20steel%20fabrication." target="_blank" rel="noopener" data-evt="whatsapp">WhatsApp</a>
+      <a class="btn btn-white" href="contact.html">Request a Quote</a>
+      <a class="btn btn-ghost" href="tel:+917358435969" data-evt="call">Call +91 73584 35969</a>
     </div>
   </div>
 </section>
@@ -104,8 +118,10 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="products.html">Products</a></li>
+          <li><a href="catalogue.html">Catalogue</a></li>
+          <li><a href="technical.html">Technical</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="cascade" style="--i:2">
@@ -113,7 +129,7 @@
         <ul>
           <li><a href="services.html#fabrication">Stainless Steel Fabrication</a></li>
           <li><a href="services.html#water">Purified Water Systems</a></li>
-          <li><a href="services.html#custom">Custom Engineering</a></li>
+          <li><a href="services.html#custom">Custom Engineering Solutions</a></li>
         </ul>
       </div>
       <div class="cascade" style="--i:3">
@@ -121,7 +137,7 @@
         <ul>
           <li><a href="tel:+917358435969">+91 73584 35969</a></li>
           <li><a href="mailto:info.gunasteels@gmail.com">info.gunasteels@gmail.com</a></li>
-          <li>19/36E, Sanjeevarayan Pettai,<br>Thindivanam, TN – 604001</li>
+          <li>19/36E, Sanjeevarayan Pettai, First Street,<br>Tindivanam, Tamil Nadu – 604001</li>
         </ul>
       </div>
     </div>
@@ -137,7 +153,7 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
     Call
   </a>
-  <a href="https://wa.me/917358435969?text=Hi%20Guna%20Steels%2C%20I%27d%20like%20an%20enquiry%20about%20pharma-grade%20stainless%20steel%20fabrication." target="_blank" rel="noopener" data-evt="whatsapp">
+  <a href="https://wa.me/917358435969?text=Hi%20Guna%20Steels%2C%20I%27d%20like%20to%20request%20a%20quote." target="_blank" rel="noopener" data-evt="whatsapp">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 21l1.7-4.2A8.5 8.5 0 1 1 8 20.2L3 21z"/></svg>
     WhatsApp
   </a>
@@ -147,6 +163,6 @@
   </a>
 </nav>
 
-<script src="assets/app.js?v=c38501fe"></script>
+<script src="assets/app.js?v=5e18f85f"></script>
 </body>
 </html>
