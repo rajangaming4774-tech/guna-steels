@@ -39,7 +39,14 @@ img,svg{max-width:100%;display:block}
   background:rgba(255,255,255,.82); backdrop-filter:blur(14px);
   border-bottom:1px solid var(--steel-200);
 }
-.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);height:68px}
+/* The header bar spans the full viewport so the logo sits at the left edge
+   rather than indented to the centred content column. Overrides .shell, which
+   the markup also carries — this rule is later in the file, so it wins. */
+.hdr-in{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--space-4);height:68px;
+  width:100%;max-width:none;padding:0 var(--space-4);
+}
 .logo{font-family:'Archivo';font-weight:900;font-size:19px;letter-spacing:.16em;color:var(--ink)}
 .logo span{color:var(--accent)}
 .nav{display:flex;gap:var(--space-4)}
