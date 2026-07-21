@@ -233,11 +233,8 @@ html:not(.js) .hero-cue{display:none}
 
 /* about */
 .about{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-6);align-items:center}
-.about-media{aspect-ratio:4/3;background:linear-gradient(135deg,var(--steel-900),var(--steel-600));position:relative;overflow:hidden}
-.about-media::after{
-  content:"WORKSHOP PHOTOGRAPHY";position:absolute;inset:auto 0 16px 0;text-align:center;
-  font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.5)
-}
+.about-media{aspect-ratio:4/3;background:var(--steel-100);border:var(--hairline);overflow:hidden}
+.about-media img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* products */
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--steel-200);border:var(--hairline)}
@@ -442,11 +439,8 @@ html:not(.js) .hero-cue{display:none}
   align-items:center;padding:var(--space-6) 0;border-top:var(--hairline);
 }
 .prow:nth-child(even) .prow-media{order:-1}
-.prow-media{aspect-ratio:4/3;background:linear-gradient(135deg,var(--steel-900),var(--steel-600));position:relative}
-.prow-media::after{
-  content:attr(data-label);position:absolute;inset:auto 0 14px 0;text-align:center;
-  font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.5);text-transform:uppercase;
-}
+.prow-media{aspect-ratio:4/3;background:var(--steel-100);border:var(--hairline);overflow:hidden}
+.prow-media img{width:100%;height:100%;object-fit:cover;display:block}
 .prow h2{font-size:clamp(1.4rem,2.6vw,2rem);font-weight:800;text-transform:uppercase}
 .prow p{margin-top:var(--space-2);color:var(--steel-600)}
 .applist{list-style:none;margin-top:var(--space-3);display:grid;gap:8px}
