@@ -161,7 +161,7 @@ img,svg{max-width:100%;display:block}
 /* keyboard escape hatch — scroll-jacking must never trap anyone */
 .hero-skip{
   position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:6;
-  padding:8px 16px;background:var(--ink);color:var(--white);border:0;cursor:pointer;
+  min-height:44px;padding:8px 20px;background:var(--ink);color:var(--white);border:0;cursor:pointer;
   font:inherit;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   opacity:0;pointer-events:none;
 }
@@ -507,3 +507,18 @@ html:not(.js) .hero-cue{display:none}
   .spec{grid-template-columns:1fr;gap:4px var(--space-2)}
   .spec dd{margin-bottom:10px}
 }
+
+/* ---------- homepage statement band (PRD 6.1) ----------
+   The hero is intentionally wordless, so the brand line and the primary /
+   secondary CTAs live here, immediately below it and above the fold on scroll. */
+.statement{background:var(--white);border-bottom:var(--hairline);padding:var(--space-7) 0}
+.statement-h{
+  font-size:clamp(1.6rem,4vw,3rem);font-weight:300;text-transform:uppercase;
+  letter-spacing:-0.01em;margin-top:var(--space-2);
+}
+.statement-h b{font-weight:900}
+.statement-p{margin-top:var(--space-3);max-width:64ch;color:var(--steel-600);font-size:16.5px}
+.statement-cta{display:flex;gap:var(--space-1);flex-wrap:wrap;margin-top:var(--space-4)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--steel-200);border:var(--hairline)}
+@media (max-width:900px){ .grid-3{grid-template-columns:1fr} }
