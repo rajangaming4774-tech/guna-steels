@@ -1,105 +1,591 @@
 {
-  "_note": "Captured from the Guna Steels brochure via OCR (PRD v1.0 §8.3). Names must be proofread against the source artwork before publishing. RO-053 was not legible in the source and is flagged for verification.",
+  "_note": "Captured directly from the Guna Steels brochure artwork (10 pages). Product names read from the printed captions; where the artwork contains an obvious typo the corrected spelling is used and the printed wording is kept in `printed`. Ranges follow the brochure section headers.",
   "ranges": {
     "dairy": "Dairy Valves & Fittings",
     "casting": "Investment Casting Valves & Fittings"
   },
   "items": [
-    { "code": "RO-001", "name": "Three Way Valve (SMS)", "range": "dairy" },
-    { "code": "RO-002", "name": "Tanker Valve", "range": "dairy" },
-    { "code": "RO-003", "name": "Two Way Valve", "range": "dairy" },
-    { "code": "RO-004", "name": "Tanker Valve with SMS Union", "range": "dairy" },
-    { "code": "RO-005", "name": "Butterfly Valve (Welded)", "range": "dairy" },
-    { "code": "RO-006", "name": "Diaphragm Valve", "range": "dairy" },
-    { "code": "RO-007", "name": "Butterfly Valve with Union", "range": "dairy" },
-    { "code": "RO-008", "name": "TC Butterfly Valve", "range": "dairy" },
-    { "code": "RO-009", "name": "Micro Valve with Union", "range": "dairy" },
-    { "code": "RO-010", "name": "Pressure Regulating Valve", "range": "dairy" },
-    { "code": "RO-011", "name": "Welded Union", "range": "dairy" },
-    { "code": "RO-012", "name": "Inline Slide Glass", "range": "dairy" },
-    { "code": "RO-013", "name": "In-Line Filter with Union", "range": "dairy" },
-    { "code": "RO-014", "name": "Spray Ball (Removing)", "range": "dairy" },
-    { "code": "RO-015", "name": "Angular Valve", "range": "dairy" },
-    { "code": "RO-016", "name": "Disk Filter with Union", "range": "dairy" },
-    { "code": "RO-017", "name": "NRV with Union (SMS)", "range": "dairy" },
-    { "code": "RO-018", "name": "Side Glass", "range": "dairy" },
-    { "code": "RO-019", "name": "DIN Union", "range": "dairy" },
-    { "code": "RO-020", "name": "SMS Union", "range": "dairy" },
-    { "code": "RO-021", "name": "Blind Nut", "range": "dairy" },
-    { "code": "RO-022", "name": "Ball Feet", "range": "dairy" },
-    { "code": "RO-023", "name": "NRV (Welded)", "range": "dairy" },
-    { "code": "RO-024", "name": "C-Spanner", "range": "dairy" },
-    { "code": "RO-025", "name": "TC Clamp", "range": "dairy" },
-    { "code": "RO-026", "name": "Reducer (Concentric)", "range": "dairy" },
-    { "code": "RO-027", "name": "Reducer (Eccentric)", "range": "dairy" },
-    { "code": "RO-028", "name": "Pipe", "range": "dairy" },
-    { "code": "RO-029", "name": "Tee", "range": "dairy" },
-    { "code": "RO-030", "name": "Reducing Tee", "range": "dairy" },
-    { "code": "RO-031", "name": "Sampling Valve", "range": "dairy" },
-    { "code": "RO-032", "name": "Bend", "range": "dairy" },
-    { "code": "RO-033", "name": "Loop Valve", "range": "dairy" },
-    { "code": "RO-034", "name": "TC End NRV", "range": "dairy" },
-    { "code": "RO-035", "name": "Clamp", "range": "dairy" },
-    { "code": "RO-036", "name": "Centrifugal Pump", "range": "dairy" },
-    { "code": "RO-037", "name": "Man Hole", "range": "dairy" },
-    { "code": "RO-038", "name": "Man Hole", "range": "dairy" },
-    { "code": "RO-039", "name": "Man Hole", "range": "dairy" },
-    { "code": "RO-040", "name": "Man Hole", "range": "dairy" },
-    { "code": "RO-041", "name": "Man Hole", "range": "dairy" },
-    { "code": "RO-042", "name": "Man Hole", "range": "dairy" },
-    { "code": "RO-043", "name": "Mixing Proof Valve", "range": "dairy" },
-    { "code": "RO-044", "name": "TC Hose Nipple", "range": "dairy" },
-    { "code": "RO-045", "name": "Pneumatic Valve", "range": "dairy" },
-    { "code": "RO-046", "name": "Gasket", "range": "dairy" },
-    { "code": "RO-047", "name": "TC End Cap", "range": "dairy" },
-    { "code": "RO-048", "name": "Pipe Clamp", "range": "dairy" },
-    { "code": "RO-049", "name": "Butterfly Handle Ball Valve", "range": "casting" },
-    { "code": "RO-050", "name": "Three Way Valve", "range": "casting" },
-    { "code": "RO-051", "name": "Ball Valve", "range": "casting" },
-    { "code": "RO-052", "name": "Flange Type Ball Valve", "range": "casting" },
-    { "code": "RO-053", "name": "Product name to be verified from brochure", "range": "casting", "verify": true },
-    { "code": "RO-054", "name": "Gate Valve", "range": "casting" },
-    { "code": "RO-055", "name": "2-PC Ball Valve", "range": "casting" },
-    { "code": "RO-056", "name": "3-PC Ball Valve", "range": "casting" },
-    { "code": "RO-057", "name": "T.C. Ball Valve", "range": "casting" },
-    { "code": "RO-058", "name": "Y-Type Strainer", "range": "casting" },
-    { "code": "RO-059", "name": "NRV (Horizontal)", "range": "casting" },
-    { "code": "RO-060", "name": "NRV (Vertical)", "range": "casting" },
-    { "code": "RO-061", "name": "3-PC Ball Valve", "range": "casting" },
-    { "code": "RO-062", "name": "Disk Check Valve", "range": "casting" },
-    { "code": "RO-063", "name": "Water Check Valve", "range": "casting" },
-    { "code": "RO-064", "name": "Bend", "range": "casting" },
-    { "code": "RO-065", "name": "Tee", "range": "casting" },
-    { "code": "RO-066", "name": "Elbow", "range": "casting" },
-    { "code": "RO-067", "name": "Flange", "range": "casting" },
-    { "code": "RO-068", "name": "Weld Neck Flange", "range": "casting" },
-    { "code": "RO-069", "name": "Blind Flange", "range": "casting" },
-    { "code": "RO-070", "name": "Sample Cock Valve", "range": "casting" },
-    { "code": "RO-071", "name": "Dairy Clamp", "range": "casting" },
-    { "code": "RO-072", "name": "Float Valve", "range": "casting" },
-    { "code": "RO-073", "name": "Union OD", "range": "casting" },
-    { "code": "RO-074", "name": "Male Connector", "range": "casting" },
-    { "code": "RO-075", "name": "Male Elbow", "range": "casting" },
-    { "code": "RO-076", "name": "Union Elbow OD", "range": "casting" },
-    { "code": "RO-077", "name": "Female Connector OD", "range": "casting" },
-    { "code": "RO-078", "name": "Union Tee OD", "range": "casting" },
-    { "code": "RO-079", "name": "Three Way Manifold", "range": "casting" },
-    { "code": "RO-080", "name": "Two Way Manifold", "range": "casting" },
-    { "code": "RO-081", "name": "Ferrule Needle Valve", "range": "casting" },
-    { "code": "RO-082", "name": "Spray Ball (Welded)", "range": "casting" },
-    { "code": "RO-083", "name": "Camlock Coupling", "range": "casting" },
-    { "code": "RO-084", "name": "TC Clamp", "range": "casting" },
-    { "code": "RO-085", "name": "Reducing Elbow", "range": "casting" },
-    { "code": "RO-086", "name": "Elbow", "range": "casting" },
-    { "code": "RO-087", "name": "Tee", "range": "casting" },
-    { "code": "RO-088", "name": "Cross Tee", "range": "casting" },
-    { "code": "RO-089", "name": "Union", "range": "casting" },
-    { "code": "RO-090", "name": "Male–Female Bush", "range": "casting" },
-    { "code": "RO-091", "name": "Reducer", "range": "casting" },
-    { "code": "RO-092", "name": "Ferrule", "range": "casting" },
-    { "code": "RO-093", "name": "Hex Nipple", "range": "casting" },
-    { "code": "RO-094", "name": "Barrel Nipple", "range": "casting" },
-    { "code": "RO-095", "name": "Check Nut", "range": "casting" },
-    { "code": "RO-096", "name": "End Cap", "range": "casting" }
+    {
+      "code": "RO-001",
+      "name": "Three Way Valve (SMS)",
+      "range": "dairy",
+      "image": "assets/products/RO-001.webp"
+    },
+    {
+      "code": "RO-002",
+      "name": "Tanker Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-002.webp"
+    },
+    {
+      "code": "RO-003",
+      "name": "Two Way Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-003.webp"
+    },
+    {
+      "code": "RO-004",
+      "name": "Tanker Valve with SMS Union",
+      "range": "dairy",
+      "image": "assets/products/RO-004.webp"
+    },
+    {
+      "code": "RO-005",
+      "name": "Butterfly Valve Welded",
+      "range": "dairy",
+      "image": "assets/products/RO-005.webp"
+    },
+    {
+      "code": "RO-006",
+      "name": "Diaphragm Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-006.webp"
+    },
+    {
+      "code": "RO-007",
+      "name": "Butterfly Valve with Union",
+      "range": "dairy",
+      "image": "assets/products/RO-007.webp"
+    },
+    {
+      "code": "RO-008",
+      "name": "TC Butterfly Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-008.webp"
+    },
+    {
+      "code": "RO-009",
+      "name": "Micro Valve with Union",
+      "range": "dairy",
+      "image": "assets/products/RO-009.webp"
+    },
+    {
+      "code": "RO-010",
+      "name": "Pressure Regulating Valve",
+      "printed": "Pressure Rgulating Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-010.webp"
+    },
+    {
+      "code": "RO-011",
+      "name": "Welded Union",
+      "range": "dairy",
+      "image": "assets/products/RO-011.webp"
+    },
+    {
+      "code": "RO-012",
+      "name": "Inline Slide Glass",
+      "range": "dairy",
+      "image": "assets/products/RO-012.webp"
+    },
+    {
+      "code": "RO-013",
+      "name": "In Line Filter with Union",
+      "range": "dairy",
+      "image": "assets/products/RO-013.webp"
+    },
+    {
+      "code": "RO-014",
+      "name": "Spray Ball Removing",
+      "range": "dairy",
+      "image": "assets/products/RO-014.webp"
+    },
+    {
+      "code": "RO-015",
+      "name": "Angular Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-015.webp"
+    },
+    {
+      "code": "RO-016",
+      "name": "Disk Filter with Union",
+      "range": "dairy",
+      "image": "assets/products/RO-016.webp"
+    },
+    {
+      "code": "RO-017",
+      "name": "NRV with Union (SMS)",
+      "range": "dairy",
+      "image": "assets/products/RO-017.webp"
+    },
+    {
+      "code": "RO-018",
+      "name": "Side Glass",
+      "range": "dairy",
+      "image": "assets/products/RO-018.webp"
+    },
+    {
+      "code": "RO-019",
+      "name": "Din Union",
+      "range": "dairy",
+      "image": "assets/products/RO-019.webp"
+    },
+    {
+      "code": "RO-020",
+      "name": "SMS Union",
+      "range": "dairy",
+      "image": "assets/products/RO-020.webp"
+    },
+    {
+      "code": "RO-021",
+      "name": "Blind Nut",
+      "range": "dairy",
+      "image": "assets/products/RO-021.webp"
+    },
+    {
+      "code": "RO-022",
+      "name": "Boll Feet",
+      "range": "dairy",
+      "image": "assets/products/RO-022.webp"
+    },
+    {
+      "code": "RO-023",
+      "name": "NRV Welded",
+      "range": "dairy",
+      "image": "assets/products/RO-023.webp"
+    },
+    {
+      "code": "RO-024",
+      "name": "C-Spanner",
+      "printed": "C-Spannner",
+      "range": "dairy",
+      "image": "assets/products/RO-024.webp"
+    },
+    {
+      "code": "RO-025",
+      "name": "TC Clamp",
+      "range": "dairy",
+      "image": "assets/products/RO-025.webp"
+    },
+    {
+      "code": "RO-026",
+      "name": "Reducer Concentric",
+      "range": "dairy",
+      "image": "assets/products/RO-026.webp"
+    },
+    {
+      "code": "RO-027",
+      "name": "Reducer Eccentric",
+      "printed": "Reducer Ecentric",
+      "range": "dairy",
+      "image": "assets/products/RO-027.webp"
+    },
+    {
+      "code": "RO-028",
+      "name": "Pipe",
+      "range": "dairy",
+      "image": "assets/products/RO-028.webp"
+    },
+    {
+      "code": "RO-029",
+      "name": "Tee",
+      "range": "dairy",
+      "image": "assets/products/RO-029.webp"
+    },
+    {
+      "code": "RO-030",
+      "name": "Reducing Tee",
+      "range": "dairy",
+      "image": "assets/products/RO-030.webp"
+    },
+    {
+      "code": "RO-031",
+      "name": "Sampling Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-031.webp"
+    },
+    {
+      "code": "RO-032",
+      "name": "Bend",
+      "range": "dairy",
+      "image": "assets/products/RO-032.webp"
+    },
+    {
+      "code": "RO-033",
+      "name": "Loop Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-033.webp"
+    },
+    {
+      "code": "RO-034",
+      "name": "TC End NRV",
+      "range": "dairy",
+      "image": "assets/products/RO-034.webp"
+    },
+    {
+      "code": "RO-035",
+      "name": "Clamp",
+      "printed": "Clamp (printed as RO-034)",
+      "range": "dairy",
+      "image": "assets/products/RO-035.webp"
+    },
+    {
+      "code": "RO-036",
+      "name": "Centrifugal Pump",
+      "range": "dairy",
+      "image": "assets/products/RO-036.webp"
+    },
+    {
+      "code": "RO-037",
+      "name": "Man Hole",
+      "range": "dairy",
+      "image": "assets/products/RO-037.webp"
+    },
+    {
+      "code": "RO-038",
+      "name": "Man Hole",
+      "range": "dairy",
+      "image": "assets/products/RO-038.webp"
+    },
+    {
+      "code": "RO-039",
+      "name": "Man Hole",
+      "range": "dairy",
+      "image": "assets/products/RO-039.webp"
+    },
+    {
+      "code": "RO-040",
+      "name": "Man Hole",
+      "range": "dairy",
+      "image": "assets/products/RO-040.webp"
+    },
+    {
+      "code": "RO-041",
+      "name": "Man Hole",
+      "range": "dairy",
+      "image": "assets/products/RO-041.webp"
+    },
+    {
+      "code": "RO-042",
+      "name": "Man Hole",
+      "range": "dairy",
+      "image": "assets/products/RO-042.webp"
+    },
+    {
+      "code": "RO-043",
+      "name": "Mixing Proof Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-043.webp"
+    },
+    {
+      "code": "RO-044",
+      "name": "TC Hose Nipple",
+      "range": "dairy",
+      "image": "assets/products/RO-044.webp"
+    },
+    {
+      "code": "RO-045",
+      "name": "Pneumatic Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-045.webp"
+    },
+    {
+      "code": "RO-046",
+      "name": "Gasket",
+      "printed": "Gas Kit",
+      "range": "dairy",
+      "image": "assets/products/RO-046.webp"
+    },
+    {
+      "code": "RO-047",
+      "name": "TC End Cap",
+      "range": "dairy",
+      "image": "assets/products/RO-047.webp"
+    },
+    {
+      "code": "RO-048",
+      "name": "Pipe Clamp",
+      "range": "dairy",
+      "image": "assets/products/RO-048.webp"
+    },
+    {
+      "code": "RO-049",
+      "name": "Butterfly Handle Ball Valve",
+      "range": "casting",
+      "image": "assets/products/RO-049.webp"
+    },
+    {
+      "code": "RO-050",
+      "name": "Three Way Valve",
+      "range": "casting",
+      "image": "assets/products/RO-050.webp"
+    },
+    {
+      "code": "RO-051",
+      "name": "Ball Valve",
+      "range": "casting",
+      "image": "assets/products/RO-051.webp"
+    },
+    {
+      "code": "RO-052",
+      "name": "Flange Type Ball Valve",
+      "range": "casting",
+      "image": "assets/products/RO-052.webp"
+    },
+    {
+      "code": "RO-053",
+      "name": "Globe Valve",
+      "range": "casting",
+      "image": "assets/products/RO-053.webp"
+    },
+    {
+      "code": "RO-054",
+      "name": "Gate Valve",
+      "range": "casting",
+      "image": "assets/products/RO-054.webp"
+    },
+    {
+      "code": "RO-055",
+      "name": "2 PC Ball Valve",
+      "range": "casting",
+      "image": "assets/products/RO-055.webp"
+    },
+    {
+      "code": "RO-056",
+      "name": "Three PC Ball Valve",
+      "range": "casting",
+      "image": "assets/products/RO-056.webp"
+    },
+    {
+      "code": "RO-057",
+      "name": "T.C. Ball Valve",
+      "range": "casting",
+      "image": "assets/products/RO-057.webp"
+    },
+    {
+      "code": "RO-058",
+      "name": "Y-Type Strainer",
+      "range": "casting",
+      "image": "assets/products/RO-058.webp"
+    },
+    {
+      "code": "RO-059",
+      "name": "NRV Horizontal",
+      "range": "casting",
+      "image": "assets/products/RO-059.webp"
+    },
+    {
+      "code": "RO-060",
+      "name": "NRV Vertical",
+      "range": "casting",
+      "image": "assets/products/RO-060.webp"
+    },
+    {
+      "code": "RO-061",
+      "name": "3 PC Ball Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-061.webp"
+    },
+    {
+      "code": "RO-062",
+      "name": "Disk Check Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-062.webp"
+    },
+    {
+      "code": "RO-063",
+      "name": "Water Check Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-063.webp"
+    },
+    {
+      "code": "RO-064",
+      "name": "Bend",
+      "range": "dairy",
+      "image": "assets/products/RO-064.webp"
+    },
+    {
+      "code": "RO-065",
+      "name": "Tee",
+      "range": "dairy",
+      "image": "assets/products/RO-065.webp"
+    },
+    {
+      "code": "RO-066",
+      "name": "Elbow",
+      "range": "dairy",
+      "image": "assets/products/RO-066.webp"
+    },
+    {
+      "code": "RO-067",
+      "name": "Flange",
+      "range": "dairy",
+      "image": "assets/products/RO-067.webp"
+    },
+    {
+      "code": "RO-068",
+      "name": "Weld Neck Flange",
+      "range": "dairy",
+      "image": "assets/products/RO-068.webp"
+    },
+    {
+      "code": "RO-069",
+      "name": "Blind Flange",
+      "range": "dairy",
+      "image": "assets/products/RO-069.webp"
+    },
+    {
+      "code": "RO-070",
+      "name": "Sample Cock Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-070.webp"
+    },
+    {
+      "code": "RO-071",
+      "name": "Dairy Clamp",
+      "range": "dairy",
+      "image": "assets/products/RO-071.webp"
+    },
+    {
+      "code": "RO-072",
+      "name": "Float Valve",
+      "range": "dairy",
+      "image": "assets/products/RO-072.webp"
+    },
+    {
+      "code": "RO-073",
+      "name": "Union OD",
+      "range": "casting",
+      "image": "assets/products/RO-073.webp"
+    },
+    {
+      "code": "RO-074",
+      "name": "Male Connector",
+      "range": "casting",
+      "image": "assets/products/RO-074.webp"
+    },
+    {
+      "code": "RO-075",
+      "name": "Male Elbow",
+      "range": "casting",
+      "image": "assets/products/RO-075.webp"
+    },
+    {
+      "code": "RO-076",
+      "name": "Union Elbow OD",
+      "range": "casting",
+      "image": "assets/products/RO-076.webp"
+    },
+    {
+      "code": "RO-077",
+      "name": "Female Connector OD",
+      "range": "casting",
+      "image": "assets/products/RO-077.webp"
+    },
+    {
+      "code": "RO-078",
+      "name": "Union Tee OD",
+      "range": "casting",
+      "image": "assets/products/RO-078.webp"
+    },
+    {
+      "code": "RO-079",
+      "name": "Three Way Manifold",
+      "range": "casting",
+      "image": "assets/products/RO-079.webp"
+    },
+    {
+      "code": "RO-080",
+      "name": "Two Way Manifold",
+      "range": "casting",
+      "image": "assets/products/RO-080.webp"
+    },
+    {
+      "code": "RO-081",
+      "name": "Ferrule Needle Valve",
+      "printed": "Ferrule Niddle Valve",
+      "range": "casting",
+      "image": "assets/products/RO-081.webp"
+    },
+    {
+      "code": "RO-082",
+      "name": "Spray Ball Welded",
+      "range": "casting",
+      "image": "assets/products/RO-082.webp"
+    },
+    {
+      "code": "RO-083",
+      "name": "Camlock Coupling",
+      "range": "casting",
+      "image": "assets/products/RO-083.webp"
+    },
+    {
+      "code": "RO-084",
+      "name": "TC Clamp",
+      "range": "casting",
+      "image": "assets/products/RO-084.webp"
+    },
+    {
+      "code": "RO-085",
+      "name": "Reducing Elbow",
+      "range": "casting",
+      "image": "assets/products/RO-085.webp"
+    },
+    {
+      "code": "RO-086",
+      "name": "Elbow",
+      "range": "casting",
+      "image": "assets/products/RO-086.webp"
+    },
+    {
+      "code": "RO-087",
+      "name": "Tee",
+      "range": "casting",
+      "image": "assets/products/RO-087.webp"
+    },
+    {
+      "code": "RO-088",
+      "name": "Cross Tee",
+      "range": "casting",
+      "image": "assets/products/RO-088.webp"
+    },
+    {
+      "code": "RO-089",
+      "name": "Union",
+      "range": "casting",
+      "image": "assets/products/RO-089.webp"
+    },
+    {
+      "code": "RO-090",
+      "name": "Male Female Bush",
+      "range": "casting",
+      "image": "assets/products/RO-090.webp"
+    },
+    {
+      "code": "RO-091",
+      "name": "Reducer",
+      "range": "casting",
+      "image": "assets/products/RO-091.webp"
+    },
+    {
+      "code": "RO-092",
+      "name": "Ferrule",
+      "range": "casting",
+      "image": "assets/products/RO-092.webp"
+    },
+    {
+      "code": "RO-093",
+      "name": "Hex Nipple",
+      "range": "casting",
+      "image": "assets/products/RO-093.webp"
+    },
+    {
+      "code": "RO-094",
+      "name": "Barrel Nipple",
+      "range": "casting",
+      "image": "assets/products/RO-094.webp"
+    },
+    {
+      "code": "RO-095",
+      "name": "Check Nut",
+      "range": "casting",
+      "image": "assets/products/RO-095.webp"
+    },
+    {
+      "code": "RO-096",
+      "name": "End Cap",
+      "range": "casting",
+      "image": "assets/products/RO-096.webp"
+    }
   ]
 }

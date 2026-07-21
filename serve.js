@@ -1,4 +1,4 @@
-const http = require('http');
+﻿const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
@@ -6,7 +6,7 @@ const ROOT = __dirname;
 const TYPES = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript',
   '.svg': 'image/svg+xml', '.pdf': 'application/pdf',
-  '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp',
+  '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.json': 'application/json', '.xml': 'application/xml', '.txt': 'text/plain',
 };
 
 http.createServer((req, res) => {
@@ -19,3 +19,4 @@ http.createServer((req, res) => {
     res.end(buf);
   });
 }).listen(4321, () => console.log('serving on http://127.0.0.1:4321'));
+

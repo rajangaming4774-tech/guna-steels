@@ -544,3 +544,27 @@ html:not(.js) .hero-cue{display:none}
   .hdr-in{gap:var(--space-3)}
   .hdr .btn-ghost{display:none}
 }
+
+
+/* ---------- product imagery (from the brochure artwork) ---------- */
+.pcard{padding-top:var(--space-2)}
+.pthumb{
+  display:block;background:var(--white);border-bottom:1px solid var(--steel-200);
+  padding:var(--space-2);margin:calc(var(--space-3) * -1) calc(var(--space-3) * -1) var(--space-2);
+}
+.pthumb img{
+  width:100%;height:150px;object-fit:contain;display:block;
+  transition:transform .25s ease;
+}
+.pcard:hover .pthumb img{transform:scale(1.05)}
+
+.pdetail-media{
+  background:var(--white);border:var(--hairline);
+  display:flex;align-items:center;justify-content:center;padding:var(--space-4);
+  aspect-ratio:1/1;
+}
+.pdetail-media img{width:100%;height:100%;object-fit:contain;display:block}
+
+@media (max-width:640px){
+  .pthumb img{height:120px}
+}
