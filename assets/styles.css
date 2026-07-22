@@ -562,3 +562,107 @@ html:not(.js) .hero-cue{display:none}
 @media (max-width:640px){
   .pthumb img{height:120px}
 }
+
+
+/* ---------- interaction & emphasis ----------
+   Every effect here is transform/opacity/shadow only, so nothing triggers
+   layout. All of it is switched off under prefers-reduced-motion at the end. */
+
+/* Buttons: lift, shadow, and a sheen that wipes across on hover. */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.22) 50%,transparent 80%);
+  transform:translateX(-120%);transition:transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.btn:hover::after{transform:translateX(120%)}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary:hover,.btn-dark:hover{box-shadow:0 8px 22px rgba(11,12,14,.24)}
+.btn-line:hover{box-shadow:0 8px 22px rgba(11,12,14,.14)}
+.btn-white:hover{box-shadow:0 8px 22px rgba(0,0,0,.20)}
+.btn:active{transform:translateY(0)}
+
+/* Primary CTAs get a steady, low-key pulse ring so the eye lands on them. */
+.statement-cta .btn-dark,.cta-btns .btn-white{position:relative}
+.statement-cta .btn-dark::before,.cta-btns .btn-white::before{
+  content:'';position:absolute;inset:-3px;z-index:-2;border:1px solid currentColor;
+  opacity:0;transform:scale(.98);transition:opacity .3s ease,transform .3s ease;
+}
+.statement-cta .btn-dark:hover::before,.cta-btns .btn-white:hover::before{opacity:.35;transform:scale(1)}
+
+/* Cards: lift onto a shadow, and draw an accent rule along the top edge. */
+.card{position:relative;transition:background .2s ease,transform .25s ease,box-shadow .25s ease}
+.card::before{
+  content:'';position:absolute;left:0;top:0;height:3px;width:0;background:var(--accent);
+  transition:width .35s cubic-bezier(.22,.61,.36,1);
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,12,14,.13);z-index:2}
+.card:hover::before{width:100%}
+
+/* The "→" on card links travels on hover. */
+.go{transition:color .2s ease}
+.card:hover .go{color:var(--ink)}
+.go::after{content:'';display:inline-block;width:0}
+.card .go{position:relative;display:inline-block}
+.card:hover .go{transform:none}
+.card .go{transition:transform .25s cubic-bezier(.22,.61,.36,1),color .2s ease}
+.card:hover .go{transform:translateX(4px)}
+
+/* Catalogue cards: same language, lighter touch. */
+.pcard{position:relative;transition:background .18s ease,transform .22s ease,box-shadow .22s ease}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(11,12,14,.14);z-index:2}
+.pcard:hover .pcode{color:var(--ink)}
+.pcode{transition:color .2s ease}
+
+/* Section headings get an accent rule that draws in when revealed. */
+.sec-head h2{position:relative;padding-bottom:var(--space-2)}
+.sec-head h2::after{
+  content:'';position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--accent);
+  transition:width .7s cubic-bezier(.22,.61,.36,1) .15s;
+}
+.js .rv.in .sec-head h2::after,.js .sec-head.in h2::after{width:64px}
+html:not(.js) .sec-head h2::after{width:64px}
+
+/* CTA band: slow sheen so the closing ask does not read as flat. */
+.cta{position:relative;overflow:hidden}
+.cta::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.10) 50%,transparent 65%);
+  transform:translateX(-100%);animation:ctaSheen 9s ease-in-out 2s infinite;
+}
+@keyframes ctaSheen{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+
+/* Nav: underline grows from the left rather than snapping on. */
+.nav a{position:relative;border-bottom-color:transparent !important}
+.nav a::after{
+  content:'';position:absolute;left:0;bottom:6px;height:1px;width:0;background:var(--accent);
+  transition:width .28s cubic-bezier(.22,.61,.36,1);
+}
+.nav a:hover::after{width:100%}
+.nav a[aria-current="page"]::after{width:100%;background:var(--ink)}
+
+/* Value strip + trust band items lift subtly on hover. */
+.value,.band-item{transition:transform .25s ease}
+.value:hover,.band-item:hover{transform:translateY(-3px)}
+
+/* Contact list rows: accent the row you are pointing at. */
+.contact-list li{transition:border-color .2s ease}
+.contact-list li:hover{border-top-color:var(--accent)}
+
+/* Product detail image: gentle zoom on hover. */
+.pdetail-media{overflow:hidden}
+.pdetail-media img{transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.pdetail-media:hover img{transform:scale(1.04)}
+
+/* Section imagery: same treatment so the language is consistent. */
+.about-media img,.prow-media img{transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.about-media:hover img,.prow-media:hover img{transform:scale(1.03)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn::after,.cta::before{display:none}
+  .btn:hover,.card:hover,.pcard:hover,.value:hover,.band-item:hover{transform:none}
+  .card:hover .go{transform:none}
+  .pdetail-media:hover img,.about-media:hover img,.prow-media:hover img{transform:none}
+  .sec-head h2::after{width:64px;transition:none}
+  .nav a::after{transition:none}
+}
