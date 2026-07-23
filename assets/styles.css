@@ -900,3 +900,132 @@ main > section[data-alt] .sec-head h2::after{left:50%;transform:translateX(-50%)
 @media (prefers-reduced-motion:reduce){
   .card::after,.grid-4 .card::after,.grid-3 .card::after{transition:none}
 }
+
+
+/* ===== v2 modern refresh ===== */
+:root{
+  --grad:linear-gradient(118deg,#0A5F66 0%,#12A3AD 55%,#22C8D6 100%);
+  /* darker variant for text CLIPPED onto light surfaces: both stops clear 3:1
+     on white (7.39 and 3.06), so gradient headings stay legible. The bright
+     --grad is only used for fills, rules and dark-surface text. */
+  --grad-text:linear-gradient(118deg,#0A5F66 0%,#12A3AD 100%);
+  --grad-soft:linear-gradient(118deg,rgba(18,163,173,.14),rgba(34,200,214,.05));
+  --glow:0 18px 50px -18px rgba(18,163,173,.45);
+  --card-radius:14px;
+}
+
+/* Page never reads as dead-flat white: a whisper-soft tint drifts down it. */
+body{
+  background:
+    radial-gradient(1200px 600px at 80% -5%, rgba(18,163,173,.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(11,12,14,.035), transparent 55%),
+    var(--paper);
+  background-attachment:fixed;
+}
+
+/* Section rhythm: alternate content sections pick up a faint panel tint and a
+   hairline top edge, so stacked white blocks stop blurring into one another. */
+main > section.sec:nth-of-type(even){
+  background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(237,239,242,.55));
+  border-top:1px solid var(--steel-200);
+  border-bottom:1px solid var(--steel-200);
+}
+
+/* Tighten vertical rhythm a touch more — the page was very tall. */
+.sec{padding:clamp(48px,6vw,76px) 0}
+
+/* ---- futuristic dark sections: tech grid + teal glow ---- */
+.band,.values,.cta{position:relative;overflow:hidden;isolation:isolate}
+.band::after,.values::after{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(120% 120% at 50% 0,#000 30%,transparent 75%);
+          mask-image:radial-gradient(120% 120% at 50% 0,#000 30%,transparent 75%);
+}
+.band::before{
+  content:'';position:absolute;z-index:0;pointer-events:none;
+  width:70vw;height:70vw;left:50%;top:-30%;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(34,200,214,.16),transparent 62%);
+}
+.band .shell,.values .shell{position:relative;z-index:1}
+
+/* CTA band: rich gradient instead of flat accent, with a moving light. */
+.cta{background:linear-gradient(118deg,#063C41 0%,#0A5F66 45%,#12A3AD 100%)}
+.cta::after{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(100% 140% at 15% 50%,#000,transparent 70%);
+          mask-image:radial-gradient(100% 140% at 15% 50%,#000,transparent 70%);
+}
+.cta .shell{position:relative;z-index:1}
+
+/* ---- gradient accents (the futuristic through-line) ---- */
+/* eyebrows get a leading gradient tick */
+.eyebrow{display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:22px;height:2px;background:var(--grad);border-radius:2px}
+
+/* section-head underline becomes a gradient bar */
+.sec-head h2::after{background:var(--grad);height:3px;border-radius:3px}
+
+/* card top rule + product code accent go gradient */
+.card::before{background:var(--grad);height:3px}
+.pcard:hover .pcode{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ---- cards / callouts / media: soft, rounded, glassy, with lift-glow ---- */
+.card,.callout,.pcard,.about-media,.prow-media,.pdetail-media,.map{
+  border-radius:var(--card-radius);
+}
+.grid-4,.grid-3,.pgrid{border-radius:calc(var(--card-radius) + 2px);overflow:hidden}
+.callout{
+  background:
+    var(--grad-soft),
+    linear-gradient(180deg,var(--white),var(--white));
+  border:1px solid var(--steel-200);border-left:3px solid transparent;
+  border-image:var(--grad) 1;box-shadow:0 10px 30px -20px rgba(11,12,14,.3);
+}
+.card:hover,.pcard:hover{box-shadow:var(--glow)}
+.about-media,.prow-media{box-shadow:0 20px 50px -28px rgba(11,12,14,.5)}
+
+/* ---- buttons: primary conversion CTAs get a gradient + glow ---- */
+.statement-cta .btn-dark,.cta-btns .btn-white,.callout .btn-dark,.contact-grid .btn-dark{
+  background:var(--grad);color:#fff;border:0;
+  box-shadow:0 10px 26px -12px rgba(18,163,173,.6);
+}
+.statement-cta .btn-dark:hover,.cta-btns .btn-white:hover,.callout .btn-dark:hover,.contact-grid .btn-dark:hover{
+  background:var(--grad);filter:brightness(1.08);
+  box-shadow:0 14px 32px -10px rgba(18,163,173,.7);
+}
+/* the mobile bar Enquire + WhatsApp pick up the accent too */
+.mbar a:last-child{color:var(--accent-hi)}
+
+/* ---- gradient wash on the statement headline for a futuristic hero-lead ---- */
+.statement-h b{
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* ---- smoother, richer scroll reveal ---- */
+.js .rv{opacity:0;transform:translateY(26px) scale(.985);filter:blur(2px);
+  transition:opacity .7s cubic-bezier(.16,.84,.44,1),transform .7s cubic-bezier(.16,.84,.44,1),filter .7s ease}
+.js .rv.in{opacity:1;transform:none;filter:none}
+html{scroll-behavior:smooth}
+
+/* value strip + band items: gradient underline grows on hover */
+.value,.band-item{position:relative}
+.value::after,.band-item::after{
+  content:'';position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);
+  width:0;height:2px;background:var(--grad);transition:width .35s cubic-bezier(.16,.84,.44,1);
+}
+.value:hover::after,.band-item:hover::after{width:42px}
+
+@media (prefers-reduced-motion:reduce){
+  body{background-attachment:scroll}
+  .js .rv{opacity:1;transform:none;filter:none;transition:none}
+  .value::after,.band-item::after{transition:none}
+}
