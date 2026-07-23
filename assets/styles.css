@@ -666,3 +666,142 @@ html:not(.js) .sec-head h2::after{width:64px}
   .sec-head h2::after{width:64px;transition:none}
   .nav a::after{transition:none}
 }
+
+
+/* ===== modernization layer ===================================================
+   Appended last: overrides earlier rules on purpose. */
+
+:root{
+  --accent:#0B6E76;               /* slightly deeper, richer teal */
+  --accent-hi:#19C2CE;            /* electric highlight for glows */
+  --radius:14px;
+  --radius-sm:10px;
+  --shadow-1:0 1px 2px rgba(11,12,14,.05), 0 6px 16px rgba(11,12,14,.06);
+  --shadow-2:0 4px 10px rgba(11,12,14,.08), 0 22px 48px rgba(11,12,14,.12);
+  --grid-line:rgba(255,255,255,.045);
+}
+
+/* subtle cool wash so the page is never a flat sheet of white */
+body{
+  background:
+    radial-gradient(1200px 620px at 82% -8%, rgba(25,194,206,.06), transparent 60%),
+    radial-gradient(900px 500px at -5% 12%, rgba(11,110,118,.05), transparent 55%),
+    var(--paper);
+  background-attachment:fixed;
+}
+
+/* --- section rhythm: alternate light sections carry a faint tinted panel,
+       tagged data-alt by the build. Kills the "long monotonous white" feel. --- */
+main > section{position:relative}
+main > section[data-alt]{
+  background:linear-gradient(180deg,#F1F3F6,#F6F8FA);
+  border-top:1px solid rgba(11,12,14,.05);
+  border-bottom:1px solid rgba(11,12,14,.05);
+}
+/* a hairline gradient accent sits at the very top of each major section */
+main > section.sec::before,main > section.why::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(11,110,118,.35),transparent);
+  opacity:.7;
+}
+/* tighten the vertical rhythm a touch so sections read faster */
+.sec{padding:clamp(56px,7vw,88px) 0}
+
+/* --- dark bands: gradient depth + a faint engineered grid = futuristic --- */
+.values,.band,.page-hero{
+  background:
+    linear-gradient(180deg, #14171C 0%, #0B0C0E 100%);
+  position:relative;
+}
+.values::before,.band::before,.page-hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 78%);
+          mask-image:radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 78%);
+}
+.values-in,.band-in,.page-hero-in{position:relative;z-index:2}
+/* a cyan hairline glow along the top edge of dark bands */
+.values,.band{box-shadow:inset 0 1px 0 rgba(25,194,206,.22)}
+
+/* --- headings get an engineered accent bar + optical polish --- */
+.sec-head h2,.page-hero h1{letter-spacing:-.02em}
+.page-hero h1{
+  background:linear-gradient(180deg,#FFFFFF, #C4CCD4);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* --- surfaces: radius + soft layered shadow, replacing hard 90° blocks --- */
+.grid-4,.grid-3{
+  background:transparent;border:0;gap:var(--space-3);
+}
+.card{
+  background:var(--white);border:1px solid var(--steel-200);
+  border-radius:var(--radius);box-shadow:var(--shadow-1);
+  padding:var(--space-4) var(--space-3);
+}
+.card:hover{background:var(--white);box-shadow:var(--shadow-2)}
+.card::before{border-radius:var(--radius) var(--radius) 0 0}
+
+.about-media,.prow-media{
+  border-radius:var(--radius);box-shadow:var(--shadow-2);border:0;
+}
+
+/* glassy catalogue teaser / callout panel */
+.callout{
+  border:1px solid rgba(11,110,118,.18);border-left:3px solid var(--accent);
+  border-radius:var(--radius);
+  background:linear-gradient(135deg, rgba(255,255,255,.9), rgba(241,243,246,.85));
+  backdrop-filter:blur(6px);box-shadow:var(--shadow-1);
+  padding:var(--space-5) var(--space-4);
+}
+
+/* catalogue product cards: soft cards on a light field, not a hairline grid */
+.pgrid{background:transparent;border:0;gap:var(--space-2)}
+.pcard{border:1px solid var(--steel-200);border-radius:var(--radius-sm);box-shadow:var(--shadow-1)}
+.pcard:hover{box-shadow:var(--shadow-2)}
+.pthumb{border-radius:var(--radius-sm) var(--radius-sm) 0 0;border-bottom:1px solid var(--steel-200)}
+
+/* product detail image frame */
+.pdetail-media{border-radius:var(--radius);box-shadow:var(--shadow-2);border:0}
+
+/* form inputs: rounded, soft focus glow */
+.field input,.field textarea{border-radius:var(--radius-sm);transition:border-color .2s ease,box-shadow .2s ease}
+.field input:focus,.field textarea:focus{box-shadow:0 0 0 3px rgba(25,194,206,.18)}
+
+/* buttons: rounded, with the accent gaining a subtle gradient + glow */
+.btn{border-radius:999px}
+.btn-primary,.btn-dark{background:linear-gradient(135deg,#16181C,#0B0C0E)}
+.btn-primary:hover,.btn-dark:hover{box-shadow:0 10px 26px rgba(11,12,14,.28), 0 0 0 1px rgba(25,194,206,.25)}
+.cta{
+  background:
+    radial-gradient(90% 140% at 100% 0%, rgba(25,194,206,.35), transparent 55%),
+    linear-gradient(120deg,#0B6E76,#08535A);
+}
+.btn-white{border-radius:999px}
+.btn-white:hover{box-shadow:0 10px 26px rgba(0,0,0,.28)}
+
+/* value strip + trust items become soft glass tiles inside the dark band */
+.value,.band-item{border-radius:var(--radius-sm)}
+.value:hover,.band-item:hover{background:rgba(255,255,255,.04)}
+
+/* --- smoother reveal: longer distance, gentle scale, refined easing --- */
+.js .rv{transform:translateY(26px) scale(.985);transition:opacity .7s cubic-bezier(.16,.84,.44,1),transform .7s cubic-bezier(.16,.84,.44,1)}
+.js .rv.in{transform:none}
+.js .rv .cascade{transition:opacity .6s cubic-bezier(.16,.84,.44,1),transform .6s cubic-bezier(.16,.84,.44,1)}
+
+/* accent-hi now drives the nav underline + heading rule for a cooler tone */
+.nav a::after{background:linear-gradient(90deg,var(--accent),var(--accent-hi))}
+.sec-head h2::after,.card::before{background:linear-gradient(90deg,var(--accent),var(--accent-hi))}
+
+@media (max-width:640px){
+  .grid-4,.grid-3{gap:var(--space-2)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  body{background-attachment:scroll}
+  .js .rv{transform:none;transition:none}
+}
