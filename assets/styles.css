@@ -805,3 +805,98 @@ main > section.sec::before,main > section.why::before{
   body{background-attachment:scroll}
   .js .rv{transform:none;transition:none}
 }
+
+
+/* ===== rhythm pass =========================================================
+   Bolder, structural variety to kill the monotony. */
+
+/* --- alternating panels: clearly visible now, with an edge line --- */
+main > section[data-alt]{
+  background:linear-gradient(180deg,#E7ECF1,#EEF1F5) !important;
+  border-top:1px solid rgba(11,110,118,.14);
+  border-bottom:1px solid rgba(11,12,14,.06);
+}
+/* headings on tinted panels centre, so the page alternates left / centre */
+main > section[data-alt] .sec-head{margin-left:auto;margin-right:auto;text-align:center}
+main > section[data-alt] .sec-head h2::after{left:50%;transform:translateX(-50%)}
+
+/* --- catalogue teaser: a full DARK feature beat, not a pale card --- */
+.callout{
+  background:linear-gradient(135deg,#14171C,#0B0C0E) !important;
+  color:var(--white);
+  border:1px solid rgba(25,194,206,.22);border-left:3px solid var(--accent-hi);
+  position:relative;overflow:hidden;
+  padding:var(--space-6) var(--space-5);
+  box-shadow:var(--shadow-2);
+}
+.callout::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(110% 120% at 100% 0%,#000 20%,transparent 70%);
+          mask-image:radial-gradient(110% 120% at 100% 0%,#000 20%,transparent 70%);
+}
+.callout > *{position:relative;z-index:1}
+.callout .eyebrow{color:var(--accent-hi)}
+.callout h2{color:var(--white)}
+.callout p{color:var(--steel-400)}
+
+/* --- "Why Choose Us": dark, numbered feature section --- */
+.why{
+  background:linear-gradient(180deg,#0B0C0E,#14171C) !important;
+  border-top:0;border-bottom:0;color:var(--white);position:relative;overflow:hidden;
+}
+.why::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask-image:radial-gradient(120% 100% at 0% 0%,#000 25%,transparent 72%);
+          mask-image:radial-gradient(120% 100% at 0% 0%,#000 25%,transparent 72%);
+}
+.why .sec,.why-grid,.why .sec-head{position:relative;z-index:2}
+.why .sec-head p{color:var(--steel-400)}
+.why-item{
+  border-top:1px solid rgba(255,255,255,.14);padding-top:var(--space-3);
+  position:relative;
+}
+.why-item b{color:var(--white)}
+.why-item p{color:var(--steel-400)}
+/* oversized ghost numeral behind each differentiator */
+.why-num{
+  position:absolute;top:-6px;right:0;z-index:0;
+  font-family:'Archivo';font-weight:900;font-size:64px;line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(25,194,206,.22);
+  letter-spacing:-.04em;pointer-events:none;
+}
+.why-item b,.why-item p{position:relative;z-index:1}
+
+/* --- value strip: cyan top border so it reads as a distinct band --- */
+.values{box-shadow:inset 0 2px 0 var(--accent-hi)}
+.value b{color:var(--white)}
+
+/* --- product / service cards: a faint index chip so grids differ --- */
+.grid-4 .card,.grid-3 .card{counter-increment:cardnum}
+.grid-4 .card::after,.grid-3 .card::after{
+  content:counter(cardnum,decimal-leading-zero);
+  position:absolute;top:14px;right:16px;
+  font-family:'Archivo';font-weight:900;font-size:13px;letter-spacing:.06em;
+  color:var(--steel-200);transition:color .25s ease;
+}
+.grid-4,.grid-3{counter-reset:cardnum}
+.card{position:relative}
+.card:hover::after{color:var(--accent-hi)}
+
+/* --- statement band: give the opening line more presence --- */
+.statement{background:linear-gradient(180deg,var(--white),#F4F6F9)}
+
+@media (max-width:640px){
+  .why-num{font-size:44px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .card::after,.grid-4 .card::after,.grid-3 .card::after{transition:none}
+}
