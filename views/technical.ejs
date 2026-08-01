@@ -1,0 +1,82 @@
+<%- include('partials/head') %>
+
+<main id="top">
+  <%- include('partials/page-hero', {
+    ghost: 'TECHNICAL',
+    crumb: 'Technical Resources'
+  }) %>
+
+  <section class="sec shell">
+    <div class="sec-head rv">
+      <p class="eyebrow">Materials &amp; Standards</p>
+      <h2>The terms on this site, explained</h2>
+      <p>The grades, connections and standards we build to — in plain language, so you can specify with confidence.</p>
+    </div>
+    <div class="glossary rv">
+      <% glossary.forEach(function (g) { %>
+      <div class="gitem"><h3><%- g.t %></h3><p><%= g.d %></p></div>
+      <% }) %>
+    </div>
+    <p class="note mt-8">These definitions are general industry guidance. For the exact grade, finish and standard on a specific product, ask our team — we build to your specification.</p>
+  </section>
+
+  <section class="sec shell alt">
+    <div class="callout rv">
+      <p class="eyebrow">Data pending verification</p>
+      <p>These two charts exist in the printed brochure as <strong>images only</strong>. The figures are engineering data that plant teams specify against, so they have not been transcribed from memory or estimated — they must be keyed in from the source artwork and checked before this page goes live. The table structure below is ready to receive them.</p>
+    </div>
+
+    <div class="rv mt-16">
+      <p class="eyebrow">Chart 1</p>
+      <h2 class="h-md">Stainless Steel Pipe — Dimensions &amp; Weights</h2>
+      <p class="lede">Per ASTM / ANSI B36.19.</p>
+      <div class="twrap">
+        <table class="dtable">
+          <caption class="sr-only">Stainless steel pipe dimensions and weights per ASTM / ANSI B36.19</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nominal bore (mm)</th>
+              <th scope="col">Nominal bore (inch)</th>
+              <th scope="col">Outside diameter (mm)</th>
+              <th scope="col">Schedule</th>
+              <th scope="col">Wall thickness (mm)</th>
+              <th scope="col">Weight (kg/m)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="6" class="tbd">Awaiting transcription from brochure page 10.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rv mt-16">
+      <p class="eyebrow">Chart 2</p>
+      <h2 class="h-md">S.S. Gauge Pipe — Weight &amp; Thickness</h2>
+      <p class="lede">Sizes 1/2&quot; to 4&quot; (OD 12.7–101.6 mm), weight per metre across gauges.</p>
+      <div class="twrap">
+        <table class="dtable">
+          <caption class="sr-only">Stainless steel gauge pipe weight and thickness</caption>
+          <thead>
+            <tr>
+              <th scope="col">Size (inch)</th>
+              <th scope="col">Outside diameter (mm)</th>
+              <th scope="col">Gauge</th>
+              <th scope="col">Thickness (mm)</th>
+              <th scope="col">Weight (kg/m)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="5" class="tbd">Awaiting transcription from brochure page 10.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="mt-8"><a class="btn btn-line" href="/brochure.pdf" download data-evt="brochure">Download the brochure (PDF)</a></p>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot') %>

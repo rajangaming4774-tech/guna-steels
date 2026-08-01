@@ -1,0 +1,24 @@
+<header class="hdr">
+  <div class="shell hdr-in">
+    <a class="logo" href="/">GUNA<span>.</span>STEELS</a>
+    <nav class="nav" aria-label="Primary">
+      <% nav.forEach(function (n) { %>
+      <a href="<%= n.href %>"<%= n.key === current ? ' aria-current="page"' : '' %>><%= n.label %></a>
+      <% }) %>
+    </nav>
+    <div class="hdr-cta">
+      <a class="btn btn-ghost" href="/brochure.pdf" download data-evt="brochure">Brochure</a>
+      <a class="btn btn-primary" href="<%= site.phoneHref %>" data-evt="call">Call Now</a>
+    </div>
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="mobilenav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobilenav" id="mobilenav" hidden>
+    <% nav.forEach(function (n) { %>
+    <a href="<%= n.href %>"<%= n.key === current ? ' aria-current="page"' : '' %>><%= n.label %></a>
+    <% }) %>
+    <a class="mobilenav-cta" href="/brochure.pdf" download>Download Brochure</a>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>

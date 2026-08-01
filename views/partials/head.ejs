@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= title %></title>
+<meta name="description" content="<%= description %>">
+<% if (typeof keywords !== 'undefined' && keywords) { %>
+<meta name="keywords" content="<%= keywords %>">
+<% } %>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="<%= site.name %>">
+<meta name="geo.region" content="IN-TN">
+<meta name="geo.placename" content="Tindivanam, Tamil Nadu">
+<link rel="canonical" href="<%= canonical %>">
+<meta name="theme-color" content="#0E1013">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="<%= site.name %>">
+<meta property="og:title" content="<%= typeof ogTitle !== 'undefined' ? ogTitle : title %>">
+<meta property="og:description" content="<%= description %>">
+<meta property="og:url" content="<%= canonical %>">
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= typeof ogTitle !== 'undefined' ? ogTitle : title %>">
+<meta name="twitter:description" content="<%= description %>">
+<meta name="twitter:image" content="<%= ogImage %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=<%= v.css %>">
+<% if (current === 'home') { %>
+<% heroPhotos.forEach(function (ph) { %><link rel="preload" as="image" href="<%= ph.src %>">
+<% }) %>
+<% } %>
+<script type="application/ld+json"><%- JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Manufacturer',
+  name: site.name,
+  url: site.origin,
+  description: 'Manufacturer of sanitary stainless steel valves, fittings, equipment and purified water systems in SS 304 and SS 316L for pharmaceutical and dairy plants.',
+  telephone: site.phone,
+  email: site.email,
+  founder: site.promoter,
+  areaServed: 'IN',
+  knowsAbout: [
+    'Stainless steel fabrication',
+    'Sanitary valves and fittings',
+    'SS 304 and SS 316L',
+    'Tri-Clamp, SMS and DIN connections',
+    'Purified water generation and distribution'
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '19/36E, Sanjeevarayan Pettai, First Street',
+    addressLocality: 'Tindivanam',
+    addressRegion: 'Tamil Nadu',
+    postalCode: '604001',
+    addressCountry: 'IN'
+  }
+}) %></script>
+<%# Breadcrumb trail — this is what renders the "Home › Catalogue › RO-001"
+    path in a Google result instead of a raw URL. %>
+<% if (typeof breadcrumbs !== 'undefined' && breadcrumbs && breadcrumbs.length) { %>
+<script type="application/ld+json"><%- JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map(function (b, i) {
+    return { '@type': 'ListItem', position: i + 1, name: b.name, item: site.origin + b.href };
+  })
+}) %></script>
+<% } %>
+<%- typeof jsonld !== 'undefined' ? jsonld : '' %>
+</head>
+<script>document.documentElement.classList.add('js')</script>
+<body<%= bodyClass ? ' class="' + bodyClass + '"' : '' %>>
+<a class="skiplink" href="#top">Skip to content</a>
+<%- include('header') %>

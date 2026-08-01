@@ -1,0 +1,33 @@
+<%- include('partials/head') %>
+
+<main id="top">
+  <%- include('partials/page-hero', {
+    ghost: 'SERVICES',
+    crumb: 'Services'
+  }) %>
+
+  <section class="sec shell">
+    <% services.forEach(function (s) { %>
+    <div class="prow rv" id="<%= s.id %>">
+      <div>
+        <p class="eyebrow"><%= s.eyebrow %></p>
+        <h2><%= s.h %></h2>
+        <p><%= s.p %></p>
+        <ul class="applist">
+          <% s.list.forEach(function (li) { %><li><%= li %></li><% }) %>
+        </ul>
+        <a class="btn btn-line" href="/contact"><%= s.btn %></a>
+      </div>
+      <div class="prow-media rv" data-rv="clip">
+        <div data-parallax="14">
+          <img src="<%= s.img %>" alt="<%= s.alt %>" width="1200" height="900" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot') %>

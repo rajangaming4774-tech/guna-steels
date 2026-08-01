@@ -1,0 +1,79 @@
+<footer class="ftr">
+  <div class="shell">
+    <div class="ftr-grid rv">
+      <div class="cascade" style="--i:0">
+        <a class="logo" href="/">GUNA<span>.</span>STEELS</a>
+        <p class="ftr-blurb"><%= site.blurb %></p>
+        <div class="ftr-social">
+          <% if (site.linkedin) { %>
+          <a href="<%= site.linkedin %>" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.5A1.5 1.5 0 1 1 4 6.5 1.5 1.5 0 0 1 4 3.5zM3 8h2v13H3zM8 8h2v1.8h.03A2.2 2.2 0 0 1 12 8c2.4 0 3 1.6 3 3.7V21h-2v-4.9c0-1.2 0-2.7-1.6-2.7S9.5 14.6 9.5 16V21H8z"/></svg></a>
+          <% } %>
+          <a href="<%= site.whatsapp %>" aria-label="WhatsApp" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21l1.7-4.2A8.5 8.5 0 1 1 8 20.2L3 21z"/></svg></a>
+          <a href="mailto:<%= site.email %>" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div class="cascade" style="--i:1">
+        <h4>Quick Links</h4>
+        <ul>
+          <% nav.forEach(function (n) { %><li><a href="<%= n.href %>"><%= n.label %></a></li><% }) %>
+        </ul>
+      </div>
+      <div class="cascade" style="--i:2">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="/catalogue">Full Catalogue (96)</a></li>
+          <li><a href="/catalogue?type=Valve">Valves</a></li>
+          <li><a href="/catalogue?type=Fitting">Fittings</a></li>
+          <li><a href="/products">Purified Water Systems</a></li>
+        </ul>
+      </div>
+      <div class="cascade" style="--i:3">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services#fabrication">Stainless Steel Fabrication</a></li>
+          <li><a href="/services#water">Purified Water Systems</a></li>
+          <li><a href="/services#custom">Custom Engineering</a></li>
+          <li><a href="/technical">Technical Resources</a></li>
+        </ul>
+      </div>
+      <div class="cascade" style="--i:4">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="<%= site.phoneHref %>"><%= site.phone %></a></li>
+          <li><a href="mailto:<%= site.email %>"><%= site.email %></a></li>
+          <li><%- site.addressLines.join('<br>') %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ftr-map rv">
+      <iframe title="Guna Steels workshop location, Tindivanam, Tamil Nadu" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" src="<%= site.mapEmbed %>"></iframe>
+    </div>
+
+    <div class="ftr-btm">
+      <p>&copy; <%= new Date().getFullYear() %> <%= site.name %>. All rights reserved.</p>
+      <p class="ftr-cert">Promoter: <%= site.promoter %> · <em>SS 304 / 316L fabrication</em></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick actions">
+  <a href="<%= site.phoneHref %>" data-evt="call">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a1 1 0 0 1-1 1A17 17 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
+    Call
+  </a>
+  <a href="/contact" data-evt="enquire">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    Enquire
+  </a>
+  <a href="<%= site.whatsappQuote %>" rel="noopener" data-evt="whatsapp">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21l1.7-4.2A8.5 8.5 0 1 1 8 20.2L3 21z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<script src="/assets/app.js?v=<%= v.app %>" defer></script>
+<% if (typeof pageScript !== 'undefined' && pageScript) { %><script src="<%= pageScript %>?v=<%= v.catalogue %>" defer></script><% } %>
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* ============================================================================
+   Stylesheet entry point — built by Tailwind CLI into public/assets/site.css
+
+     npm run build:css     one-off, minified
+     npm run watch:css     rebuild on change
+
+   Layer order is declared up front, so the cascade is predictable regardless
+   of import order: Tailwind utilities always beat our component classes, which
+   means `class="card mt-12"` does what you expect without !important.
+
+   Tailwind's preflight is deliberately NOT imported — components.css carries
+   its own reset, and loading both makes them fight over base element styles.
+   ========================================================================= */
+
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import './components.css' layer(components);
+@import './animations.css' layer(components);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Where to look for class names. Explicit beats auto-detection here because
+   .ejs is not in Tailwind's default extension list. */
+@source '../../views/**/*.ejs';
+@source '../../data/**/*.js';
+@source '../../public/assets/**/*.js';
+
+/* ---------------------------------------------------------------------------
+   Design tokens exposed to Tailwind.
+
+   These mirror the custom properties in components.css so the two systems
+   describe one palette: `text-chrome-ink` and `var(--chrome-ink)` resolve to the
+   same colour. Keep them in sync — components.css is the source of truth for
+   the raw values, this block is the Tailwind-facing name for each.
+   --------------------------------------------------------------------------- */
+/* `static` so every token is emitted as a CSS variable even when no utility
+   references it yet — the palette stays inspectable in devtools and usable
+   from inline styles or hand-written CSS. */
+@theme static {
+  /* graphite */
+  --color-graphite-950: #0a0b0d;
+  --color-graphite-900: #0e1013;
+  --color-graphite-850: #14171b;
+  --color-graphite-800: #1a1e24;
+  --color-graphite-700: #252a31;
+
+  /* steel */
+  --color-steel-600: #5c6572;
+  --color-steel-500: #79828f;
+  --color-steel-400: #9aa3b0;
+  --color-steel-300: #bfc6cf;
+  --color-steel-200: #d9dde3;
+  --color-steel-100: #eaedf0;
+
+  /* paper */
+  --color-paper: #f7f6f3;
+  --color-paper-2: #f1efea;
+  --color-paper-3: #e9e5dc;
+
+  /* chrome — the accent, anchored on #D4D4D4 (= chrome-300). That value is
+     12:1 on graphite but 1.37:1 on paper, so text on a light surface uses
+     chrome-ink (#5A5A5A, 6.4:1) instead. See components.css for the full note. */
+  --color-chrome-ink: #5a5a5a;
+  --color-chrome-700: #4a4a4a;
+  --color-chrome-600: #6e6e6e;
+  --color-chrome-500: #9c9c9c;
+  --color-chrome-400: #b8b8b8;
+  --color-chrome-300: #d4d4d4;
+  --color-chrome-200: #e4e4e4;
+  --color-chrome-100: #f2f2f2;
+
+  /* type */
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --tracking-label: 0.2em;
+
+  /* shape */
+  --radius-sm: 8px;
+  --radius-DEFAULT: 12px;
+  --radius-lg: 18px;
+
+  /* warm-tinted depth — neutral grey shadows look like dirt on warm paper */
+  --shadow-soft: 0 1px 2px rgb(28 22 12 / 0.05), 0 4px 12px rgb(28 22 12 / 0.05);
+  --shadow-lift: 0 2px 6px rgb(28 22 12 / 0.06), 0 14px 32px -8px rgb(28 22 12 / 0.13);
+  --shadow-deep: 0 4px 10px rgb(28 22 12 / 0.07), 0 30px 64px -20px rgb(28 22 12 / 0.24);
+  --shadow-chrome: 0 14px 34px -14px rgb(74 74 74 / 0.42);
+
+  /* motion */
+  --ease-brand: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-brand-out: cubic-bezier(0.16, 0.84, 0.44, 1);
+
+  /* animation utilities: animate-rise-in, animate-sheen, animate-nudge, … */
+  --animate-rise-in: rise-in 0.85s var(--ease-brand) both;
+  --animate-fade-in: fade-in 0.7s var(--ease-brand-out) both;
+  --animate-nudge: nudge 1.8s ease-in-out infinite;
+  --animate-sheen: sheen 9s ease-in-out 2s infinite;
+  --animate-draw: draw 0.8s var(--ease-brand-out) both;
+}

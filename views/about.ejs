@@ -1,0 +1,79 @@
+<%- include('partials/head') %>
+
+<main id="top">
+  <%- include('partials/page-hero', {
+    ghost: 'ABOUT',
+    crumb: 'About Us'
+  }) %>
+
+  <section class="sec shell">
+    <div class="about rv">
+      <div>
+        <p class="eyebrow">Our Story</p>
+        <h2 class="h-md">Built for regulated production</h2>
+        <p class="lede">Established with a vision to serve the pharmaceutical sector with cutting-edge equipment, Guna Steels has emerged as a reliable manufacturer and fabricator of stainless steel pharma-grade machinery and components.</p>
+        <p class="lede">Backed by years of hands-on experience and an expert technical team, we understand the critical hygiene and regulatory requirements of pharma facilities — and we deliver accordingly. Our workshop in Tindivanam, Tamil Nadu is equipped with modern fabrication tools and quality control processes to ensure each product meets strict standards.</p>
+        <a class="btn btn-line mt-8" href="/contact">Start an enquiry</a>
+      </div>
+      <div class="about-media rv" data-rv="clip">
+        <div data-parallax="16">
+          <img src="/assets/sections/workshop.webp" alt="Interior of a stainless steel fabrication workshop: a large polished steel pipe section suspended from an overhead gantry crane, with vessels and pipe sections along the floor" width="1400" height="1050" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="shell values-in rv">
+      <% values.forEach(function (v, i) { %>
+      <div class="value cascade" style="--i:<%= i %>"><b><%= v.b %></b><i><%= v.i %></i></div>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="sec shell">
+    <div class="sec-head rv">
+      <p class="eyebrow">Capability</p>
+      <h2>What we bring to a plant</h2>
+    </div>
+    <div class="why-grid rv">
+      <% capability.forEach(function (c, i) { %>
+      <div class="why-item cascade" style="--i:<%= i %>">
+        <span class="why-num"><%= String(i + 1).padStart(2, '0') %></span>
+        <b><%- c.b %></b>
+        <p><%- c.p %></p>
+      </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="sec shell">
+      <div class="sec-head rv">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Why pharma buyers stay with us</h2>
+      </div>
+      <div class="why-grid rv">
+        <% whyUs.forEach(function (w, i) { %>
+        <div class="why-item cascade" style="--i:<%= i %>">
+          <span class="why-num"><%= String(i + 1).padStart(2, '0') %></span>
+          <b><%- w.b %></b>
+          <p><%- w.p %></p>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec shell">
+    <div class="callout rv">
+      <p class="eyebrow">Promoter</p>
+      <h2 class="h-sm"><%= site.promoter %></h2>
+      <p>Guna Steels serves the pharmaceutical and dairy sectors from its workshop at <%= site.addressLines.join(' ') %>.</p>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot') %>

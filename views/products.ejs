@@ -1,0 +1,34 @@
+<%- include('partials/head') %>
+
+<main id="top">
+  <%- include('partials/page-hero', {
+    ghost: 'PRODUCTS',
+    crumb: 'Products'
+  }) %>
+
+  <section class="sec shell">
+    <div class="grid-4 rv">
+      <% categories.forEach(function (c, i) { %>
+      <a class="card cascade" style="--i:<%= i %>" href="/catalogue">
+        <h3><%- c.h %></h3>
+        <p><%- c.pLong %></p>
+        <span class="go">Browse the catalogue →</span>
+      </a>
+      <% }) %>
+    </div>
+
+    <div class="callout rv mt-16">
+      <p class="eyebrow">Full catalogue</p>
+      <h2 class="h-md"><%= total %> products, searchable by code</h2>
+      <p>Every item from our brochure is now a real page you can search, link to and quote from — no PDF required.</p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a class="btn btn-dark" href="/catalogue">Browse all <%= total %> products</a>
+        <a class="btn btn-line" href="/brochure.pdf" download data-evt="brochure">Download brochure (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot') %>

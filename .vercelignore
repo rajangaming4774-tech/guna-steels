@@ -1,0 +1,17 @@
+# Unrelated app kept in this folder — not part of the Guna Steels site.
+client/
+server/
+
+# Pre-Express static build, superseded by views/ + data/site.js.
+legacy-static/
+
+# Asset-pipeline scripts: they produce public/assets, they aren't served.
+tools/
+
+# Scratch data from the unrelated app.
+*.csv
+test_*.js
+
+# Docs
+*.md
+LICENSE

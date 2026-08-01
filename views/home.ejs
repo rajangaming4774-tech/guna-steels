@@ -1,0 +1,237 @@
+<%- include('partials/head') %>
+
+<main id="top">
+
+  <!-- HERO — scroll-to-expand. The panel sits inside the STEEL wordmark and
+       grows to full bleed on scroll. It renders one frame per entry in
+       data/site.js → heroPhotos (one today; add a second and the panel widens
+       to a side-by-side pair automatically). -->
+  <section class="hero">
+    <button class="hero-skip" type="button">Skip to content</button>
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="wordmark"><span>STEEL</span></div>
+    </div>
+
+    <div class="hero-stage">
+      <div class="hero-media">
+        <% heroPhotos.forEach(function (ph, i) { %>
+        <figure class="hero-frame" style="--i:<%= i %>">
+          <img src="<%= ph.src %>" alt="<%= ph.alt %>" style="object-position:<%= ph.focus %>" decoding="async" fetchpriority="high">
+        </figure>
+        <% }) %>
+      </div>
+
+      <!-- Stats sit outside the frames so the panel imagery can carry its own
+           treatment while the figures stay crisp. -->
+      <div class="stats">
+        <div class="shell stats-in">
+          <div class="stat"><b>SS 304 / 316L</b><span>Grades Fabricated</span></div>
+          <div class="stat"><b><%= total %>+</b><span>Products &amp; Fittings</span></div>
+          <div class="stat"><b>Pharma &amp; Dairy</b><span>Sectors Served</span></div>
+        </div>
+      </div>
+
+      <%# The page's h1 lives in the statement band below, where it is visible.
+          A hidden sr-only h1 used to sit here — it counted for SEO but spent
+          the strongest on-page signal on text no reader ever saw. %>
+    </div>
+
+    <p class="hero-cue">
+      Scroll to expand
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </p>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement">
+    <div class="shell rv">
+      <p class="eyebrow">Guna Steels · Tindivanam, Tamil Nadu</p>
+      <h1 class="statement-h"><%- h1Light %><br><b><%- h1Bold %></b></h1>
+      <p class="statement-tag">Precision Fabrication • SS 304 &amp; SS 316L • Custom Engineering</p>
+      <p class="statement-p">Manufacturer and supplier of sanitary, pharma-grade stainless steel valves, fittings, equipment and purified water systems — Tri-Clamp (TC), SMS and DIN — for pharmaceutical, dairy and food-processing plants across India. Built to your drawings, to the hygiene and compliance standards your production demands.</p>
+      <div class="statement-cta">
+        <a class="btn btn-dark" href="/contact">Get a Quote</a>
+        <a class="btn btn-line" href="/brochure.pdf" download data-evt="brochure">Download Brochure</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STATS — PLACEHOLDER FIGURES, see data/site.js -->
+  <section class="trust">
+    <div class="panel-ghost" aria-hidden="true">GUNA</div>
+    <div class="shell trust-in rv">
+      <% trust.forEach(function (t, i) { %>
+      <div class="trust-item cascade" style="--i:<%= i %>">
+        <b><span class="count" data-count="<%= t.n %>">0</span><em>+</em></b>
+        <span><%= t.label %></span>
+      </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- VALUE STRIP -->
+  <section class="values">
+    <div class="shell values-in rv">
+      <% values.forEach(function (v, i) { %>
+      <div class="value cascade" style="--i:<%= i %>"><b><%= v.b %></b><i><%= v.i %></i></div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="sec shell">
+    <div class="about rv">
+      <div>
+        <p class="eyebrow">About Us</p>
+        <h2 class="h-md">Pharma is not a<br>side business for us</h2>
+        <p class="lede">Established with a vision to serve the pharmaceutical sector with cutting-edge equipment, Guna Steels has emerged as a reliable manufacturer and fabricator of stainless steel pharma-grade machinery and components.</p>
+        <p class="lede">Our workshop in Tindivanam, Tamil Nadu is equipped with modern fabrication tools and quality control processes to ensure each product meets strict standards.</p>
+        <a class="btn btn-line mt-8" href="/about">See how we work</a>
+      </div>
+      <div class="about-media rv" data-rv="clip">
+        <div data-parallax="16">
+          <img src="/assets/sections/workshop.webp" alt="Interior of a stainless steel fabrication workshop: a large polished steel pipe section suspended from an overhead gantry crane, with vessels and pipe sections along the floor" width="1400" height="1050" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="sec shell alt">
+    <div class="sec-head rv">
+      <p class="eyebrow">Products</p>
+      <h2>What we fabricate</h2>
+      <p>Four categories of pharma-grade stainless steel, each built to specification.</p>
+    </div>
+    <div class="grid-4 rv">
+      <% categories.forEach(function (c, i) { %>
+      <a class="card cascade" style="--i:<%= i %>" href="/products">
+        <h3><%- c.h %></h3>
+        <p><%- c.p %></p>
+        <span class="go">See the range →</span>
+      </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- CATALOGUE TEASER -->
+  <section class="sec shell">
+    <div class="callout callout-split rv">
+      <div>
+        <p class="eyebrow">Full Catalogue</p>
+        <h2 class="h-md"><%= total %> products, searchable by code</h2>
+        <p>Every sanitary valve and fitting we manufacture is a searchable, indexable page — look up a product by code or name, view the SS 304 / 316L spec, and request a quote. From dairy valves and Tri-Clamp fittings to purified water components, the full range is a click away. No PDF required.</p>
+        <div class="flex flex-wrap gap-4 mt-8">
+          <a class="btn btn-dark" href="/catalogue">Browse all <%= total %> products</a>
+          <a class="btn btn-line" href="/technical">Technical resources</a>
+        </div>
+      </div>
+      <div class="callout-media rv" data-rv="right" aria-hidden="true">
+        <% teaserImages.forEach(function (src) { %>
+        <img src="<%= src %>" alt="" width="560" height="560" loading="lazy">
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="sec shell">
+      <div class="sec-head rv">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Why pharma buyers stay with us</h2>
+      </div>
+      <div class="why-grid rv">
+        <% whyUs.forEach(function (w, i) { %>
+        <div class="why-item cascade" style="--i:<%= i %>">
+          <span class="why-num"><%= String(i + 1).padStart(2, '0') %></span>
+          <b><%- w.b %></b>
+          <p><%- w.p %></p>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <section class="band">
+    <div class="wordmark-sm" aria-hidden="true">316L</div>
+    <div class="shell band-in rv">
+      <div class="band-item cascade" style="--i:0"><b>SS 304 / 316L</b><span>Top-grade stainless throughout, for hygiene and durability.</span></div>
+      <div class="band-item cascade" style="--i:1"><b>Pharma &amp; Dairy</b><span>Sanitary equipment for regulated production — that is the whole business.</span></div>
+      <div class="band-item cascade" style="--i:2"><b>Tindivanam, Tamil Nadu</b><span>Our own workshop, with modern tooling and quality control.</span></div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="sec shell">
+    <div class="sec-head rv">
+      <p class="eyebrow">Services</p>
+      <h2>How we work with you</h2>
+    </div>
+    <div class="grid-3 rv">
+      <% services.forEach(function (s, i) { %>
+      <a class="card cascade" style="--i:<%= i %>" href="/services#<%= s.id %>">
+        <h3><%= s.h %></h3>
+        <p><%= s.teaser %></p>
+        <span class="go">See the service →</span>
+      </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- GALLERY — starter imagery; replace with real facility photography. -->
+  <section class="sec shell alt">
+    <div class="sec-head rv">
+      <p class="eyebrow">Gallery</p>
+      <h2>Inside the workshop</h2>
+      <p>Fabrication, finishing and the range we build. Real project and facility photography drops in here.</p>
+    </div>
+    <div class="gallery rv" data-rv="scale">
+      <% gallery.forEach(function (g, i) { %>
+      <figure class="gtile<%= g.wide ? ' gtile-wide' : '' %> cascade" style="--i:<%= i %>">
+        <img src="<%= g.img %>" alt="<%= g.alt %>" width="1400" height="1050" loading="lazy">
+        <figcaption><%- g.cap %></figcaption>
+      </figure>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec shell">
+    <div class="sec-head rv">
+      <p class="eyebrow">FAQ</p>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq rv">
+      <% faq.forEach(function (f) { %>
+      <details>
+        <summary><%= f.q %></summary>
+        <p><%= f.a %></p>
+      </details>
+      <% }) %>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
+
+  <!-- CONTACT SUMMARY -->
+  <section class="sec shell">
+    <div class="contact-grid rv">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 class="h-md">Talk to the people who build it</h2>
+        <p class="lede max-w-[52ch]">Tell us the grade, the size and the application — or just send the drawing. We reply within one working day.</p>
+        <a class="btn btn-dark mt-8" href="/contact">Get a quote</a>
+      </div>
+      <ul class="contact-list">
+        <li><b>Phone</b><a href="<%= site.phoneHref %>" data-evt="call"><%= site.phone %></a></li>
+        <li><b>Email</b><a href="mailto:<%= site.email %>"><%= site.email %></a></li>
+        <li><b>Workshop</b><p><%- site.addressLines.join('<br>') %></p></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/foot') %>

@@ -1,0 +1,12 @@
+<section class="page-hero">
+  <div class="ghost" aria-hidden="true"><%= ghost %></div>
+  <div class="shell page-hero-in">
+    <p class="crumb">
+      <a href="/">Home</a><span>/</span>
+      <% if (typeof crumb2 !== 'undefined' && crumb2) { %><a href="<%= crumb2.href %>"><%= crumb2.label %></a><span>/</span><% } %>
+      <%= crumb %>
+    </p>
+    <h1><%- h1 %></h1>
+    <% if (typeof lede !== 'undefined' && lede) { %><p><%- lede %></p><% } %>
+  </div>
+</section>

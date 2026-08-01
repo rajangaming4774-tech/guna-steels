@@ -1,0 +1,29 @@
+{
+  "name": "guna-steels",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Guna Steels — pharma-grade stainless steel fabrication, Tindivanam, Tamil Nadu. Express + EJS.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "build:css": "tailwindcss -i src/css/app.css -o public/assets/site.css --minify",
+    "watch:css": "tailwindcss -i src/css/app.css -o public/assets/site.css --watch",
+    "build": "npm run build:css",
+    "prestart": "npm run build:css",
+    "start": "node server.js",
+    "dev": "npm run build:css && node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.8.1",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

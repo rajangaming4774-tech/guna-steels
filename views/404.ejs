@@ -1,0 +1,19 @@
+<%- include('partials/head') %>
+
+<main id="top">
+  <%- include('partials/page-hero', {
+    ghost: '404',
+    crumb: 'Not found'
+  }) %>
+
+  <section class="sec shell">
+    <div class="flex flex-wrap gap-4 mt-8 rv">
+      <a class="btn btn-dark" href="/catalogue">Browse the catalogue</a>
+      <a class="btn btn-line" href="/contact">Contact us</a>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot') %>

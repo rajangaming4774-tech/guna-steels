@@ -1,0 +1,64 @@
+<%- include('partials/head', { jsonld: '<script type="application/ld+json">' + JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  sku: p.code,
+  name: p.name,
+  description: p.name + ' (' + p.code + ') — stainless steel ' + p.type.toLowerCase() + ' in the ' + p.rangeLabel + ' range, fabricated in SS 304 / 316L by Guna Steels.',
+  material: 'Stainless Steel SS 304 / 316L',
+  image: site.origin + p.image,
+  brand: { '@type': 'Brand', name: site.name },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'INR',
+    price: '0',
+    description: 'Price on request'
+  }
+}) + '</' + 'script>' }) %>
+
+<main id="top">
+  <%# h1 uses p.heading, not p.name — see headingFor() in data/site.js. The
+      keyword-bearing lede (grade, type, code, range) comes from the route. %>
+  <%- include('partials/page-hero', {
+    ghost: p.code.replace('RO-', ''),
+    crumb2: { href: '/catalogue', label: 'Catalogue' },
+    crumb: p.code,
+    h1: p.heading
+  }) %>
+
+  <section class="sec shell">
+    <div class="prow prow-first rv">
+      <div>
+        <p class="eyebrow">Specification</p>
+        <dl class="spec">
+          <dt>Product code</dt><dd><%= p.code %></dd>
+          <dt>Product name</dt><dd><%= p.name %><% if (p.verify) { %> <em class="flag">to verify</em><% } %></dd>
+          <dt>Range</dt><dd><%= p.rangeLabel %></dd>
+          <dt>Type</dt><dd><%= p.type %></dd>
+          <dt>Material</dt><dd>SS 304 / 316L</dd>
+          <dt>Sizes &amp; ends</dt><dd class="muted">On request — TC, SMS, DIN and custom</dd>
+          <dt>Applications</dt><dd><%= p.application %></dd>
+          <dt>Price</dt><dd class="muted">On request</dd>
+        </dl>
+        <div class="flex flex-wrap gap-4 mt-8">
+          <a class="btn btn-dark" href="/contact?product=<%= p.code %>" data-evt="enquire">Enquire about <%= p.code %></a>
+          <a class="btn btn-line" href="/brochure.pdf" download data-evt="brochure">Download PDF</a>
+        </div>
+        <p class="note mt-4">Your enquiry form will be pre-filled with this product code.</p>
+      </div>
+      <div class="pdetail-media">
+        <img src="<%= p.image %>" alt="<%= p.name %> (<%= p.code %>) — stainless steel <%= p.type.toLowerCase() %> fabricated by Guna Steels" width="560" height="560">
+      </div>
+    </div>
+
+    <nav class="pnav" aria-label="Catalogue navigation">
+      <span><% if (prev) { %><a href="<%= prev.href %>">← <%= prev.code %> <%= prev.name %></a><% } %></span>
+      <a href="/catalogue">All products</a>
+      <span><% if (next) { %><a href="<%= next.href %>"><%= next.code %> <%= next.name %> →</a><% } %></span>
+    </nav>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot') %>

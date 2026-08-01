@@ -1,0 +1,231 @@
+/* ============================================================================
+   MOTION LAYER
+   Rich but restrained: every effect is transform / opacity / shadow only, so
+   nothing triggers layout. The whole file is switched off under
+   prefers-reduced-motion at the bottom.
+
+   Two ways in:
+     1. `class="rv"` on a container  → reveals on scroll (JS adds .in)
+        `data-rv="fade|left|right|scale|clip"` picks the variant
+        `class="cascade" style="--i:N"` staggers children
+     2. Tailwind utilities from @theme: animate-rise-in, animate-fade-in,
+        animate-sheen, animate-draw, animate-nudge
+   ========================================================================= */
+
+/* ------------------------------------------------------------- keyframes -- */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fade-slide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+/* a slow light sweep across dark bands */
+@keyframes sheen {
+  0%        { transform: translateX(-110%); }
+  55%, 100% { transform: translateX(110%); }
+}
+/* The ambient glow on dark bands drifts instead of sitting static. Those
+   pseudo-elements are centred with translateX(-50%), so the keyframe has to
+   carry it — otherwise animating `transform` would drop the centring. */
+@keyframes drift {
+  from { transform: translateX(-50%) translateY(0) scale(1); }
+  to   { transform: translateX(-46%) translateY(24px) scale(1.06); }
+}
+/* The hero glow is inset:0 rather than centred, so it needs a keyframe with no
+   translateX — reusing `drift` here would shove it half a viewport left. */
+@keyframes hero-drift {
+  from { transform: translateY(0) scale(1); opacity: .85; }
+  to   { transform: translateY(16px) scale(1.05); opacity: 1; }
+}
+@keyframes draw {
+  from { width: 0; }
+  to   { width: var(--draw-to, 72px); }
+}
+@keyframes shimmer {
+  from { background-position: -160% 0; }
+  to   { background-position: 260% 0; }
+}
+
+/* =============================================================== reveals == */
+/* Base state lives in components.css (.js .rv / .rv.in). These are variants. */
+.js .rv[data-rv='fade']  { transform: none; }
+.js .rv[data-rv='left']  { transform: translateX(-28px); }
+.js .rv[data-rv='right'] { transform: translateX(28px); }
+.js .rv[data-rv='scale'] { transform: scale(.965); }
+.js .rv[data-rv].in      { transform: none; }
+
+/* Image reveal: the picture uncovers rather than fading — reads more crafted
+   than a plain opacity fade, and costs one clip-path interpolation. */
+.js .rv[data-rv='clip'] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .9s var(--ease-out);
+}
+.js .rv[data-rv='clip'].in { clip-path: inset(0 0 0 0); }
+
+/* NOTE: no "settle" (over-scale that eases to 1) helper here on purpose. Every
+   media element in components.css already owns its `transform` for the hover
+   zoom, and parallax below owns it too — a third rule on the same property
+   would just start a specificity fight. Reveal = clip-path, depth = parallax,
+   hover = scale. One property each. */
+
+/* ======================================================== page entrances == */
+/* Above-the-fold content can't wait for an observer, so it animates on load. */
+.page-hero .crumb { animation: rise-in .7s var(--ease) .05s both; }
+.page-hero h1     { animation: rise-in .8s var(--ease) .14s both; }
+.page-hero > .shell > p,
+.page-hero-in > p { animation: rise-in .8s var(--ease) .26s both; }
+.page-hero .ghost { animation: fade-in 1.4s var(--ease-out) .3s both; }
+
+.statement .eyebrow      { animation: rise-in .7s var(--ease) .05s both; }
+.statement-h             { animation: rise-in .8s var(--ease) .13s both; }
+.statement-tag           { animation: rise-in .8s var(--ease) .21s both; }
+.statement-p             { animation: rise-in .8s var(--ease) .29s both; }
+.statement-cta           { animation: rise-in .8s var(--ease) .37s both; }
+
+/* header drops in on first paint */
+.hdr { animation: rise-in .6s var(--ease) both; }
+
+/* =========================================================== dark bands == */
+/* The ambient chrome glow drifts slowly — enough to keep the band alive
+   without reading as an animation. (.trust is a light panel now and has no
+   glow pseudo-element, so it is not listed here.) */
+.band::after,
+.why::after {
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+/* the ghost word on the light panels fades up rather than appearing */
+.panel-ghost { animation: fade-in 1.6s var(--ease-out) .25s both; }
+
+/* One slow specular sweep across the closing CTA so it doesn't read as flat. */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 34%, rgb(255 255 255 / .13) 50%, transparent 66%);
+  animation: sheen 11s ease-in-out 2.5s infinite;
+}
+
+/* The 316L ghost wordmark breathes very slightly. */
+.band .wordmark-sm {
+  animation: fade-in 1.6s var(--ease-out) .2s both;
+}
+
+/* ============================================================== surfaces == */
+/* Cards already lift in components.css; motion layer adds the chrome glow and
+   a shimmer across the index chip so the hover feels considered. */
+.card:hover  { box-shadow: var(--sh-3), var(--sh-chrome); }
+.pcard:hover { box-shadow: var(--sh-3), 0 10px 24px -14px rgb(74 74 74 / .35); }
+.gitem:hover { box-shadow: var(--sh-2), 0 8px 20px -14px rgb(74 74 74 / .32); }
+
+/* Buttons stay calm — a chrome glow, not a bounce. */
+.btn { position: relative; }
+.btn-primary:hover,
+.btn-dark:hover { box-shadow: 0 10px 26px -12px rgb(28 22 12 / .55), 0 0 0 1px rgb(212 212 212 / .34); }
+.btn-line:hover { box-shadow: 0 8px 20px -12px rgb(74 74 74 / .34); }
+
+/* The arrow on a card link travels; the label brightens. */
+.card:hover .go { color: var(--chrome-600); }
+
+/* Section eyebrow tick grows as its block reveals. */
+.js .rv .eyebrow::before { width: 0; transition: width .6s var(--ease-out) .1s; }
+.js .rv.in .eyebrow::before { width: 24px; }
+
+/* ================================================================= faq ==== */
+/* details has no animatable height cross-browser, so the content fades and
+   slides instead — the panel opens instantly, the text arrives. */
+.faq details[open] > p { animation: fade-slide .34s var(--ease-out) both; }
+.faq summary { transition: color .2s ease, padding-left .25s var(--ease); }
+.faq summary:hover { padding-left: 6px; }
+
+/* ============================================================ parallax ==== */
+/* JS writes --py on [data-parallax]; a very small range, so it reads as depth
+   rather than as movement.
+
+   [data-parallax] is a dedicated wrapper that exists only to carry this
+   translate. It is oversized and pulled up by half the overflow, so the offset
+   can never expose an edge inside the frame. The image keeps its own transform
+   for the hover zoom — see the note in the reveals section. */
+[data-parallax] {
+  position: relative;
+  top: -22px;
+  height: calc(100% + 44px);
+  transform: translate3d(0, var(--py, 0px), 0);
+  will-change: transform;
+}
+[data-parallax] > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==================================================== scroll progress ===== */
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  z-index: 90;
+  background: var(--chrome-grad);
+  transition: width .1s linear;
+  pointer-events: none;
+}
+
+/* ============================================== catalogue grid stagger ==== */
+/* 96 cards: JS assigns --i per card in view rather than inlining 96 values. */
+.js .pgrid .pcard {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity .5s var(--ease-out),
+    transform .5s var(--ease-out),
+    box-shadow .25s ease,
+    border-color .25s ease;
+  transition-delay: calc(var(--i, 0) * 45ms);
+}
+.js .pgrid .pcard.in { opacity: 1; transform: none; }
+/* hover must not inherit the entrance delay */
+.js .pgrid .pcard.in:hover { transition-delay: 0s; }
+
+/* ==================================================== hero atmosphere ===== */
+/* The hero's chrome wash drifts, so the space around the panel is alive without
+   touching the wordmark itself.
+
+   Deliberately NOT a background-clip shimmer on the wordmark: that needs
+   transparent text, and any unpainted area of the gradient would render the
+   site's largest element invisible. Not worth the risk for a flourish. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(52% 46% at 50% 12%, rgb(212 212 212 / .13), transparent 70%);
+  animation: hero-drift 18s ease-in-out infinite alternate;
+  transform-origin: 50% 20%;
+}
+
+/* ======================================================== reduced motion == */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+  .js .rv[data-rv],
+  .js .rv[data-rv='clip'] { opacity: 1; transform: none; clip-path: none; transition: none; }
+  .js .rv .settle { transform: none; transition: none; }
+  .js .rv .eyebrow::before { width: 24px; transition: none; }
+  .js .pgrid .pcard { opacity: 1; transform: none; transition: none; }
+  [data-parallax] { transform: none; top: 0; height: 100%; }
+  .faq summary:hover { padding-left: 0; }
+  .progress { transition: none; }
+}

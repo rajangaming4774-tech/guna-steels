@@ -1,0 +1,54 @@
+<%- include('partials/head', { pageScript: '/assets/catalogue.js' }) %>
+
+<main id="top">
+  <%- include('partials/page-hero', {
+    ghost: 'CATALOGUE',
+    crumb: 'Catalogue'
+  }) %>
+
+  <section class="sec shell">
+    <div class="cat-controls rv">
+      <div class="field flex-1 basis-[280px]">
+        <label for="q">Search by code or name</label>
+        <input id="q" type="search" placeholder="e.g. RO-051 or ball valve" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="fRange">Range</label>
+        <select id="fRange">
+          <option value="">All ranges</option>
+          <% Object.keys(ranges).forEach(function (k) { %>
+          <option value="<%= k %>"><%= ranges[k] %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fType">Type</label>
+        <select id="fType">
+          <option value="">All types</option>
+          <% types.forEach(function (t) { %><option value="<%= t %>"><%= t %></option><% }) %>
+        </select>
+      </div>
+    </div>
+
+    <p class="cat-count" id="count"><%= products.length %> products</p>
+
+    <div class="pgrid" id="grid">
+      <% products.forEach(function (p) { %>
+      <a class="pcard" href="<%= p.href %>" data-code="<%= p.code %>" data-name="<%= p.name %>" data-range="<%= p.range %>" data-type="<%= p.type %>">
+        <span class="pthumb"><img src="<%= p.image %>" alt="<%= p.name %> — product code <%= p.code %>" loading="lazy" width="560" height="560"></span>
+        <span class="pcode"><%= p.code %></span>
+        <span class="pname"><%= p.name %></span>
+        <span class="ptags"><span class="ptag"><%= p.rangeLabel %></span><span class="ptag"><%= p.type %></span></span>
+      </a>
+      <% }) %>
+    </div>
+
+    <p class="cat-empty" id="empty" hidden>
+      No products match that search. <button class="linkbtn" id="clear" type="button">Clear filters</button>
+    </p>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/foot', { pageScript: '/assets/catalogue.js' }) %>
